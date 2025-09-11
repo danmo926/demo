@@ -29,6 +29,11 @@ export default {
           // Tailwind classes
           /.*-\[.*\]/, // Matches all classes with `-[...]` (Tailwind JIT classes)
           /^(!)?[a-z]+:!?.*/, // Matches responsive and important modifiers, like `md:!text-emerald-500`
+          // OpenLayers CSS classes
+          /^ol-/, // All OpenLayers classes starting with 'ol-'
+          /^custom-zoom/, // Custom zoom control class
+          // Cesium CSS classes
+          /^cesium-/, // All Cesium classes starting with 'cesium-'
         ],
       }),
   ],

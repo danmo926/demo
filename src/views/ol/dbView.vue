@@ -7,9 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted ,nextTick} from 'vue'
+import { onMounted } from 'vue'
 
-import 'ol/ol.css'
+// OpenLayers CSS is imported globally in app.css
 
 import Map from 'ol/Map'
 
@@ -32,9 +32,7 @@ window.Cesium = Cesium
 
 window.CESIUM_BASE_URL = '/demo/Cesium/'
 
-onMounted(async () => {
-
-  await nextTick();
+onMounted( () => {
   // 在DOM渲染完成后初始化地图
 
   const map = new Map({
@@ -83,8 +81,48 @@ onMounted(async () => {
     height: 700px;
   }
 }
-::v-deep(.custom-zoom) {
-  top: 10px;
-  right: 10px;
+
+/* 确保OpenLayers控件样式不被scoped影响 */
+</style>
+
+<style lang="css">
+/* 全局样式，确保OpenLayers控件正确显示 */
+.custom-zoom {
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 1000 !important;
+}
+
+/* 确保OpenLayers控件容器有正确的定位 */
+.ol-control {
+  position: absolute !important;
+}
+
+.ol-zoom {
+  top: 0.5em !important;
+  left: 0.5em !important;
+}
+
+/* 确保控件按钮样式正确 */
+.ol-zoom button {
+  display: block !important;
+  margin: 1px !important;
+  padding: 0 !important;
+  color: #000 !important;
+  font-size: 1.14em !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  height: 1.375em !important;
+  width: 1.375em !important;
+  line-height: 1.375em !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #ccc !important;
+  border-radius: 2px !important;
+}
+
+.ol-zoom button:hover {
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 1) !important;
 }
 </style>
