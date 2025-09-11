@@ -1,8 +1,8 @@
 <template>
   <div class="doubleView-main">
     <div class="ct" id="map"></div>
-
     <div class="ct" id="cesium"></div>
+    <div style="position: absolute;bottom: 0;right: 0">version:0.0.1</div>
   </div>
 </template>
 
@@ -68,7 +68,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .doubleView-main {
   display: flex;
 
