@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+// powershell 执行 git push -f origin $(git subtree split --prefix dist main):gh-pages
 
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'

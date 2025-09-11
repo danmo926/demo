@@ -1,9 +1,9 @@
 <template>
 
 <div class="doubleView-main">
-<div id="map"></div>
+<div class="ct" id="map"></div>
 
-<div id="cesium" style="position: relative;"></div>
+<div class="ct" id="cesium" style="position: relative;"></div>
 
 </div>
 
@@ -100,7 +100,7 @@ display: flex;
 
 flex-wrap: wrap;
 
->div{
+.ct{
 
 width: 50%;
 
@@ -112,9 +112,13 @@ height: 700px;
 
 @media (max-width: 1100px) {
 
-.doubleView-main > div {
+.doubleView-main {
+
+.ct{
 
 width: 100%;
+
+}
 
 }
 
