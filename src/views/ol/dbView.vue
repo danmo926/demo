@@ -83,4 +83,8 @@ onMounted(async () => {
     height: 700px;
   }
 }
+::v-deep(.custom-zoom) {
+  top: 10px;
+  right: 10px;
+}
 </style>
