@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted ,nextTick} from 'vue'
 
 import 'ol/ol.css'
 
@@ -26,12 +26,15 @@ import { fromLonLat } from 'ol/proj'
 import * as Cesium from 'cesium'
 
 import 'cesium/Build/Cesium/Widgets/widgets.css'
+import { Zoom } from 'ol/control'
 
 window.Cesium = Cesium
 
 window.CESIUM_BASE_URL = '/demo/Cesium/'
 
-onMounted(() => {
+onMounted(async () => {
+
+  await nextTick();
   // 在DOM渲染完成后初始化地图
 
   const map = new Map({
@@ -48,6 +51,11 @@ onMounted(() => {
 
       zoom: 5, // 设置初始缩放级别
     }),
+    controls: [
+      new Zoom({
+        className: 'custom-zoom', // 可自定义样式
+      }),
+    ],
   })
 
   const ol3d = new OLCesium({ map: map, target: 'cesium' })
