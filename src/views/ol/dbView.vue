@@ -2,7 +2,7 @@
   <div class="doubleView-main">
     <div class="ct" id="map"></div>
     <div class="ct" id="cesium"></div>
-    <div style="position: absolute;bottom: 0;right: 0">version:0.0.1</div>
+    <div style="position: absolute;bottom: 0;right: 0">version:0.0.2</div>
   </div>
 </template>
 
@@ -71,10 +71,9 @@ onMounted(() => {
 <style lang="css" scoped>
 .doubleView-main {
   display: flex;
-
   flex-wrap: wrap;
   .ct {
-    width: 50%;
+    width: 700px;
     height: 100vh;
     position: relative;
   }
@@ -83,7 +82,7 @@ onMounted(() => {
 @media (max-width: 1100px) {
   .doubleView-main {
     .ct {
-      width: 100%;
+      width: 700px;
       height: 500px;
     }
   }
