@@ -16,6 +16,7 @@ const transformHtmlPlugin = (data: Record<string, string>): Plugin => ({
 })
 
 export default defineConfig({
+  base: '/demo/',
   plugins: [
     vue(),
     tailwindcss(),
@@ -45,9 +46,5 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'json'],
     },
-  },
-  build: {
-    outDir: 'docs',   // 这里把打包目录改成 docs
-    emptyOutDir: true // 打包前清空目录
   },
 })

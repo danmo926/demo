@@ -12,6 +12,14 @@ const routes = [
     },
   },
   {
+    path: '/ol/dbview',
+    name: 'oldbview',
+    component: () => import('@/views/ol/dbView.vue'),
+    meta: {
+      layout: 'default',
+    },
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
