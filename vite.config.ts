@@ -46,4 +46,8 @@ export default defineConfig({
       reporter: ['text', 'json'],
     },
   },
+  build: {
+    outDir: 'docs',   // 这里把打包目录改成 docs
+    emptyOutDir: true // 打包前清空目录
+  },
 })
