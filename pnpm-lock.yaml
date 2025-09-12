@@ -17,6 +17,9 @@ importers:
       ol:
         specifier: ^10.6.1
         version: 10.6.1
+      ol-layerswitcher:
+        specifier: ^4.1.2
+        version: 4.1.2(ol@10.6.1)
       olcs:
         specifier: ^2.22.1
         version: 2.22.1(cesium@1.133.1)(ol@10.6.1)
@@ -2636,6 +2639,11 @@ packages:
   object.values@1.2.1:
     resolution: {integrity: sha512-gXah6aZrcUxjWg2zR2MwouP2eHlCBzdV4pygudehaKXSGW4v2AsRQUK+lwwXhii6KFZcunEnmSUoYp5CXibxtA==}
     engines: {node: '>= 0.4'}
+
+  ol-layerswitcher@4.1.2:
+    resolution: {integrity: sha512-yF1iNqPKWr7AcsIWnr5He+T/J4X3qdce7qr8QUi/5Xyjo6uFjVvVijdAhMwiNfJrBNh9JhrXeDSl+1/cTT58KA==}
+    peerDependencies:
+      ol: '>=5.0.0'
 
   ol@10.6.1:
     resolution: {integrity: sha512-xp174YOwPeLj7c7/8TCIEHQ4d41tgTDDhdv6SqNdySsql5/MaFJEJkjlsYcvOPt7xA6vrum/QG4UdJ0iCGT1cg==}
@@ -6195,6 +6203,10 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
+
+  ol-layerswitcher@4.1.2(ol@10.6.1):
+    dependencies:
+      ol: 10.6.1
 
   ol@10.6.1:
     dependencies:
