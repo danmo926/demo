@@ -44,6 +44,16 @@
           </li>
           <li>
             <RouterLink
+              to="/portfolio"
+              class="block rounded-xs px-3 py-2 no-underline hover:text-emerald-600 md:bg-transparent md:p-0 md:hover:text-emerald-600"
+              :active-class="activeClass"
+              @click="closeNavBar"
+            >
+              Portfolio
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink
               to="/about"
               class="block rounded-xs px-3 py-2 no-underline hover:text-emerald-600 md:bg-transparent md:p-0 md:hover:text-emerald-600"
               :active-class="activeClass"

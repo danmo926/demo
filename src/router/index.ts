@@ -20,6 +20,22 @@ const routes = [
     },
   },
   {
+    path: '/intro',
+    name: 'intro',
+    component: () => import('@/views/intro.vue'),
+    meta: {
+      layout: 'default',
+    },
+  },
+  {
+    path: '/portfolio',
+    name: 'Portfolio',
+    component: () => import('@/views/Portfolio.vue'),
+    meta: {
+      layout: 'default',
+    },
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

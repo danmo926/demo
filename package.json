@@ -23,8 +23,10 @@
   "dependencies": {
     "cesium": "^1.133.1",
     "gh-pages": "^6.3.0",
+    "gsap": "^3.13.0",
     "ol": "^10.6.1",
     "ol-layerswitcher": "^4.1.2",
+    "ol-wind": "^1.1.9",
     "olcs": "^2.22.1",
     "pinia": "^3.0.3",
     "vue": "^3.5.18",

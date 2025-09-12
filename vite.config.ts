@@ -22,7 +22,7 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     transformHtmlPlugin({
-      title: 'ProjectName',
+      title: 'DanMo demo',
       description: 'A single page application created using Vue.js 3',
     }),
   ],

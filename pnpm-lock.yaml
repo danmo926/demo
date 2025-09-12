@@ -14,12 +14,18 @@ importers:
       gh-pages:
         specifier: ^6.3.0
         version: 6.3.0
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       ol:
         specifier: ^10.6.1
         version: 10.6.1
       ol-layerswitcher:
         specifier: ^4.1.2
         version: 4.1.2(ol@10.6.1)
+      ol-wind:
+        specifier: ^1.1.9
+        version: 1.1.9(ol@10.6.1)
       olcs:
         specifier: ^2.22.1
         version: 2.22.1(cesium@1.133.1)(ol@10.6.1)
@@ -2010,6 +2016,9 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
+
   has-bigints@1.1.0:
     resolution: {integrity: sha512-R3pbpkcIqv2Pm3dUwgjclDRVmWpTJW2DcMzcIhEXEx1oh/CEMObMm3KLmRJOdvhM7o4uQBnwr8pzRK2sJWIqfg==}
     engines: {node: '>= 0.4'}
@@ -2644,6 +2653,11 @@ packages:
     resolution: {integrity: sha512-yF1iNqPKWr7AcsIWnr5He+T/J4X3qdce7qr8QUi/5Xyjo6uFjVvVijdAhMwiNfJrBNh9JhrXeDSl+1/cTT58KA==}
     peerDependencies:
       ol: '>=5.0.0'
+
+  ol-wind@1.1.9:
+    resolution: {integrity: sha512-QLqmlJlMwmhC8QDMPEfi/WTtOaKbXUqO07Rfo0zVGnoe6imL3KYM6/QPjIIOe6niT7Bwwn5lInTaXWqHfUE08Q==}
+    peerDependencies:
+      ol: '>=6.0.0'
 
   ol@10.6.1:
     resolution: {integrity: sha512-xp174YOwPeLj7c7/8TCIEHQ4d41tgTDDhdv6SqNdySsql5/MaFJEJkjlsYcvOPt7xA6vrum/QG4UdJ0iCGT1cg==}
@@ -3463,6 +3477,9 @@ packages:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
     engines: {node: '>=8'}
     hasBin: true
+
+  wind-core@1.1.8:
+    resolution: {integrity: sha512-mxnkLXkZ4hcoGsRBkBsP0TyCnTDAslbMMmInklKWnDKzkRJ/nkyxGOGG+06i+ta+PihEKCV3zTZMdGlMD9orZQ==}
 
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
@@ -5584,6 +5601,8 @@ snapshots:
 
   graphemer@1.4.0: {}
 
+  gsap@3.13.0: {}
+
   has-bigints@1.1.0: {}
 
   has-flag@4.0.0: {}
@@ -6207,6 +6226,11 @@ snapshots:
   ol-layerswitcher@4.1.2(ol@10.6.1):
     dependencies:
       ol: 10.6.1
+
+  ol-wind@1.1.9(ol@10.6.1):
+    dependencies:
+      ol: 10.6.1
+      wind-core: 1.1.8
 
   ol@10.6.1:
     dependencies:
@@ -7076,6 +7100,8 @@ snapshots:
     dependencies:
       siginfo: 2.0.0
       stackback: 0.0.2
+
+  wind-core@1.1.8: {}
 
   word-wrap@1.2.5: {}
 
