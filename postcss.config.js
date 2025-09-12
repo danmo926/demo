@@ -32,6 +32,10 @@ export default {
           // OpenLayers CSS classes
           /^ol-/, // All OpenLayers classes starting with 'ol-'
           /^custom-zoom/, // Custom zoom control class
+          // LayerSwitcher CSS classes
+          /^layer-switcher/, // LayerSwitcher main classes
+          /\.layer-switcher/, // LayerSwitcher selector classes
+          'shown', // LayerSwitcher state classes
           // Cesium CSS classes
           /^cesium-/, // All Cesium classes starting with 'cesium-'
         ],
