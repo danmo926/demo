@@ -1,6 +1,7 @@
 import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss'
 
-const IN_PRODUCTION = process.env.NODE_ENV === 'production'
+// const IN_PRODUCTION = process.env.NODE_ENV === 'production'
+const IN_PRODUCTION = process.env.NODE_ENV === 'disable'
 
 export default {
   plugins: [
