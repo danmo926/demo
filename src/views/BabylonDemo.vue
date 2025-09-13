@@ -4,7 +4,7 @@
     <div class="bg-layer-1"></div>
     <div class="bg-layer-2"></div>
     <div class="bg-layer-3"></div>
-    
+
     <!-- Header -->
     <div class="header-container">
       <div class="header">
@@ -12,7 +12,12 @@
           <div class="header-left">
             <div class="logo-icon">
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
               </svg>
             </div>
             <div class="logo-text">
@@ -20,25 +25,45 @@
               <p>Interactive Customization</p>
             </div>
           </div>
-          
+
           <!-- Desktop Quick Actions -->
           <div class="desktop-actions">
-            <button class="action-btn" @click="resetCamera" title="重置视角">
+            <button class="action-btn" title="重置视角" @click="resetCamera">
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                ></path>
               </svg>
             </button>
-            <button class="action-btn" :class="{ 'active': wireframeMode }" @click="toggleWireframe">
+            <button class="action-btn" :class="{ active: wireframeMode }" @click="toggleWireframe">
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
             </button>
-            <button class="action-btn" :class="{ 'active': animationPlaying }" @click="toggleAnimation">
+            <button class="action-btn" :class="{ active: animationPlaying }" @click="toggleAnimation">
               <svg v-if="!animationPlaying" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
               <svg v-else width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
             </button>
           </div>
@@ -46,7 +71,12 @@
           <!-- Mobile Menu Button -->
           <button class="mobile-menu-btn" @click="toggleMobilePanel">
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+              ></path>
             </svg>
           </button>
         </div>
@@ -58,13 +88,13 @@
       <!-- Canvas Area -->
       <div class="canvas-area">
         <div class="canvas-panel">
-          <canvas 
+          <canvas
             ref="babylonCanvas"
             class="canvas"
             @mousedown="handleCanvasInteraction"
             @touchstart="handleCanvasInteraction"
           ></canvas>
-          
+
           <!-- Loading Overlay -->
           <div v-if="loading" class="loading-overlay">
             <div class="loading-content">
@@ -84,11 +114,11 @@
         <div class="sidebar-panel">
           <!-- Tabs -->
           <div class="tabs">
-            <button 
+            <button
               v-for="tab in tabs"
               :key="tab.id"
               class="tab-btn"
-              :class="{ 'active': activeTab === tab.id }"
+              :class="{ active: activeTab === tab.id }"
               @click="activeTab = tab.id"
             >
               {{ tab.name }}
@@ -101,26 +131,26 @@
             <div v-if="activeTab === 'components'" class="tab-panel">
               <h3 class="section-title">模型组件</h3>
               <div class="components-list">
-                <div 
+                <div
                   v-for="component in modelComponents"
                   :key="component.id"
                   class="component-item"
-                  :class="{ 'selected': selectedComponent?.id === component.id }"
+                  :class="{ selected: selectedComponent?.id === component.id }"
                   @click="selectComponent(component)"
                 >
                   <div class="component-header">
                     <h4 class="component-name">{{ component.name }}</h4>
-                    <div class="status-dot" :class="{ 'active': component.visible }"></div>
+                    <div class="status-dot" :class="{ active: component.visible }"></div>
                   </div>
-                  
+
                   <!-- Variants -->
                   <div v-if="selectedComponent?.id === component.id" class="variants">
                     <div class="variants-grid">
-                      <button 
+                      <button
                         v-for="variant in component.variants"
                         :key="variant.id"
                         class="variant-btn"
-                        :class="{ 'active': variant.active }"
+                        :class="{ active: variant.active }"
                         @click.stop="selectVariant(component.id, variant.id)"
                       >
                         {{ variant.name }}
@@ -135,26 +165,22 @@
             <div v-if="activeTab === 'materials'" class="tab-panel">
               <h3 class="section-title">材质库</h3>
               <div class="materials-grid">
-                <div 
+                <div
                   v-for="material in materials"
                   :key="material.id"
                   class="material-item"
-                  :class="{ 'selected': selectedMaterial?.id === material.id }"
+                  :class="{ selected: selectedMaterial?.id === material.id }"
                   @click="selectMaterial(material)"
                 >
-                  <div 
+                  <div
                     class="material-preview"
                     :style="{ background: `linear-gradient(135deg, ${material.preview}, ${material.preview}dd)` }"
                   ></div>
                   <h4 class="material-name">{{ material.name }}</h4>
                 </div>
               </div>
-              
-              <button 
-                class="apply-btn"
-                :disabled="!selectedComponent || !selectedMaterial"
-                @click="applyMaterial"
-              >
+
+              <button class="apply-btn" :disabled="!selectedComponent || !selectedMaterial" @click="applyMaterial">
                 应用材质
               </button>
             </div>
@@ -165,25 +191,21 @@
               <div class="controls">
                 <div class="control-group">
                   <label class="control-label">光照强度</label>
-                  <input 
-                    type="range" 
-                    min="0" 
-                    max="2" 
-                    step="0.1" 
+                  <input
                     v-model="lightingIntensity"
+                    type="range"
+                    min="0"
+                    max="2"
+                    step="0.1"
                     class="slider"
                     @input="updateLighting"
-                  >
+                  />
                   <div class="control-value">{{ lightingIntensity }}</div>
                 </div>
 
                 <div class="control-group">
                   <label class="control-label">环境场景</label>
-                  <select 
-                    v-model="selectedEnvironment"
-                    @change="changeEnvironment"
-                    class="select"
-                  >
+                  <select v-model="selectedEnvironment" class="select" @change="changeEnvironment">
                     <option v-for="env in environments" :key="env.id" :value="env.id">
                       {{ env.name }}
                     </option>
@@ -192,15 +214,15 @@
 
                 <div class="control-group">
                   <label class="control-label">相机速度</label>
-                  <input 
-                    type="range" 
-                    min="0.5" 
-                    max="5" 
-                    step="0.5" 
+                  <input
                     v-model="cameraSpeed"
+                    type="range"
+                    min="0.5"
+                    max="5"
+                    step="0.5"
                     class="slider"
                     @input="updateCameraSpeed"
-                  >
+                  />
                   <div class="control-value">{{ cameraSpeed }}x</div>
                 </div>
               </div>
@@ -211,40 +233,40 @@
     </div>
 
     <!-- Mobile Bottom Sheet -->
-    <div class="mobile-panel" :class="{ 'open': mobilePanelOpen }">
+    <div class="mobile-panel" :class="{ open: mobilePanelOpen }">
       <div class="mobile-sheet">
         <div class="mobile-header">
           <div class="mobile-handle"></div>
           <h3 class="mobile-title">定制您的模型</h3>
         </div>
-        
+
         <!-- Mobile Tabs -->
         <div class="mobile-tabs">
-          <button 
+          <button
             v-for="tab in tabs"
             :key="tab.id"
             class="mobile-tab"
-            :class="{ 'active': activeTab === tab.id }"
+            :class="{ active: activeTab === tab.id }"
             @click="activeTab = tab.id"
           >
             {{ tab.name }}
           </button>
         </div>
-        
+
         <!-- Mobile Content -->
         <div class="mobile-content">
           <!-- Components Tab -->
           <div v-if="activeTab === 'components'" class="mobile-tab-panel">
             <div class="mobile-components">
-              <div 
+              <div
                 v-for="component in modelComponents.slice(0, 4)"
                 :key="component.id"
                 class="mobile-component"
-                :class="{ 'selected': selectedComponent?.id === component.id }"
+                :class="{ selected: selectedComponent?.id === component.id }"
                 @click="selectComponent(component)"
               >
                 <h4 class="mobile-component-name">{{ component.name }}</h4>
-                <div class="status-dot" :class="{ 'active': component.visible }"></div>
+                <div class="status-dot" :class="{ active: component.visible }"></div>
               </div>
             </div>
           </div>
@@ -252,26 +274,22 @@
           <!-- Materials Tab -->
           <div v-if="activeTab === 'materials'" class="mobile-tab-panel">
             <div class="mobile-materials">
-              <div 
+              <div
                 v-for="material in materials.slice(0, 6)"
                 :key="material.id"
                 class="mobile-material"
-                :class="{ 'selected': selectedMaterial?.id === material.id }"
+                :class="{ selected: selectedMaterial?.id === material.id }"
                 @click="selectMaterial(material)"
               >
-                <div 
+                <div
                   class="mobile-material-preview"
                   :style="{ background: `linear-gradient(135deg, ${material.preview}, ${material.preview}dd)` }"
                 ></div>
                 <h4 class="mobile-material-name">{{ material.name }}</h4>
               </div>
             </div>
-            
-            <button 
-              class="mobile-apply-btn"
-              :disabled="!selectedComponent || !selectedMaterial"
-              @click="applyMaterial"
-            >
+
+            <button class="mobile-apply-btn" :disabled="!selectedComponent || !selectedMaterial" @click="applyMaterial">
               应用材质
             </button>
           </div>
@@ -282,15 +300,31 @@
               <div class="mobile-control-row">
                 <div class="mobile-control">
                   <label>光照</label>
-                  <input type="range" min="0" max="2" step="0.1" v-model="lightingIntensity" class="mobile-slider" @input="updateLighting">
+                  <input
+                    v-model="lightingIntensity"
+                    type="range"
+                    min="0"
+                    max="2"
+                    step="0.1"
+                    class="mobile-slider"
+                    @input="updateLighting"
+                  />
                 </div>
                 <div class="mobile-control">
                   <label>速度</label>
-                  <input type="range" min="0.5" max="5" step="0.5" v-model="cameraSpeed" class="mobile-slider" @input="updateCameraSpeed">
+                  <input
+                    v-model="cameraSpeed"
+                    type="range"
+                    min="0.5"
+                    max="5"
+                    step="0.5"
+                    class="mobile-slider"
+                    @input="updateCameraSpeed"
+                  />
                 </div>
               </div>
-              
-              <select v-model="selectedEnvironment" @change="changeEnvironment" class="mobile-select">
+
+              <select v-model="selectedEnvironment" class="mobile-select" @change="changeEnvironment">
                 <option v-for="env in environments" :key="env.id" :value="env.id">{{ env.name }}</option>
               </select>
             </div>
@@ -305,7 +339,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 defineOptions({
   name: 'BabylonDemo',
@@ -335,7 +369,7 @@ const activeTab = ref('components')
 const tabs = ref([
   { id: 'components', name: '组件' },
   { id: 'materials', name: '材质' },
-  { id: 'environment', name: '环境' }
+  { id: 'environment', name: '环境' },
 ])
 
 // Mock Data
@@ -349,8 +383,8 @@ const modelComponents = ref([
       { id: 'sedan', name: '轿车', active: true },
       { id: 'suv', name: 'SUV', active: false },
       { id: 'hatchback', name: '掀背', active: false },
-      { id: 'coupe', name: '跑车', active: false }
-    ]
+      { id: 'coupe', name: '跑车', active: false },
+    ],
   },
   {
     id: 'wheels',
@@ -361,8 +395,8 @@ const modelComponents = ref([
       { id: 'sport', name: '运动', active: true },
       { id: 'classic', name: '经典', active: false },
       { id: 'chrome', name: '镀铬', active: false },
-      { id: 'carbon', name: '碳纤维', active: false }
-    ]
+      { id: 'carbon', name: '碳纤维', active: false },
+    ],
   },
   {
     id: 'interior',
@@ -373,8 +407,8 @@ const modelComponents = ref([
       { id: 'leather', name: '皮质', active: true },
       { id: 'fabric', name: '布料', active: false },
       { id: 'carbon', name: '碳纤维', active: false },
-      { id: 'wood', name: '木纹', active: false }
-    ]
+      { id: 'wood', name: '木纹', active: false },
+    ],
   },
   {
     id: 'lights',
@@ -385,9 +419,9 @@ const modelComponents = ref([
       { id: 'halogen', name: '卤素', active: true },
       { id: 'led', name: 'LED', active: false },
       { id: 'xenon', name: '氙气', active: false },
-      { id: 'laser', name: '激光', active: false }
-    ]
-  }
+      { id: 'laser', name: '激光', active: false },
+    ],
+  },
 ])
 
 const materials = ref([
@@ -395,45 +429,45 @@ const materials = ref([
     id: 'red_metallic',
     name: '金属红',
     type: 'PBR材质',
-    preview: '#dc2626'
+    preview: '#dc2626',
   },
   {
     id: 'blue_pearl',
     name: '珍珠蓝',
     type: 'PBR材质',
-    preview: '#2563eb'
+    preview: '#2563eb',
   },
   {
     id: 'white_matte',
     name: '哑光白',
     type: '哑光材质',
-    preview: '#f3f4f6'
+    preview: '#f3f4f6',
   },
   {
     id: 'black_gloss',
     name: '亮光黑',
     type: '高光材质',
-    preview: '#111827'
+    preview: '#111827',
   },
   {
     id: 'silver_chrome',
     name: '镀铬银',
     type: '金属材质',
-    preview: '#9ca3af'
+    preview: '#9ca3af',
   },
   {
     id: 'carbon_fiber',
     name: '碳纤维',
     type: '复合材质',
-    preview: '#374151'
-  }
+    preview: '#374151',
+  },
 ])
 
 const environments = ref([
   { id: 'studio', name: '工作室' },
   { id: 'outdoor', name: '户外' },
   { id: 'garage', name: '车库' },
-  { id: 'showroom', name: '展厅' }
+  { id: 'showroom', name: '展厅' },
 ])
 
 // Methods
@@ -461,9 +495,10 @@ const selectComponent = (component: any) => {
 }
 
 const selectVariant = (componentId: string, variantId: string) => {
-  const component = modelComponents.value.find(c => c.id === componentId)
+  const component = modelComponents.value.find((c) => c.id === componentId)
+
   if (component) {
-    component.variants.forEach(v => v.active = v.id === variantId)
+    component.variants.forEach((v) => (v.active = v.id === variantId))
     console.log('选择变体:', componentId, variantId)
   }
 }
@@ -544,7 +579,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
   border: 1px solid $glass-border;
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -561,13 +596,13 @@ $text-dim: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &:hover {
     background: $glass-hover-bg;
     color: $text-primary;
     transform: scale(1.05);
   }
-  
+
   &.active {
     background: $active-gradient;
     border-color: $active-border;
@@ -581,12 +616,12 @@ $text-dim: rgba(255, 255, 255, 0.5);
   @include glass-effect(8px);
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   &:hover {
     background: $glass-hover-bg;
     border-color: $glass-hover-border;
   }
-  
+
   &.selected {
     background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
     border-color: $active-border;
@@ -668,18 +703,18 @@ $text-dim: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     color: $text-primary;
     margin: 0;
-    
+
     @media (min-width: 768px) {
       font-size: 20px;
     }
   }
-  
+
   p {
     font-size: 12px;
     color: $text-muted;
     margin: 0;
     display: none;
-    
+
     @media (min-width: 640px) {
       display: block;
     }
@@ -690,7 +725,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   display: none;
   align-items: center;
   gap: 8px;
-  
+
   @media (min-width: 768px) {
     display: flex;
   }
@@ -703,7 +738,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
 .mobile-menu-btn {
   @include button-base;
   display: flex;
-  
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -723,9 +758,8 @@ $text-dim: rgba(255, 255, 255, 0.5);
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  padding-right: 0;
-  
+  padding: 16px 0 16px 16px;
+
   @media (min-width: 768px) {
     padding-right: 16px;
   }
@@ -743,7 +777,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
@@ -809,10 +843,9 @@ $text-dim: rgba(255, 255, 255, 0.5);
 // Desktop Sidebar
 .desktop-sidebar {
   width: 320px;
-  padding: 16px;
-  padding-left: 0;
+  padding: 16px 16px 16px 0;
   display: none;
-  
+
   @media (min-width: 768px) {
     display: block;
   }
@@ -833,8 +866,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   padding: 4px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  margin: 16px;
-  margin-bottom: 0;
+  margin: 16px 16px 0;
 }
 
 .tab-btn {
@@ -848,12 +880,12 @@ $text-dim: rgba(255, 255, 255, 0.5);
   color: $text-secondary;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   &.active {
     background: rgba(255, 255, 255, 0.1);
     color: $text-primary;
   }
-  
+
   &:hover:not(.active) {
     color: $text-secondary;
     opacity: 0.8;
@@ -911,12 +943,12 @@ $text-dim: rgba(255, 255, 255, 0.5);
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  
+
   &.active {
     background: #22c55e;
     box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
   }
-  
+
   &:not(.active) {
     background: rgba(107, 114, 128, 0.5);
   }
@@ -944,12 +976,12 @@ $text-dim: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
-  
+
   &:hover {
     background: $glass-hover-bg;
     color: $text-primary;
   }
-  
+
   &.active {
     background: $active-gradient;
     border-color: $active-border;
@@ -966,7 +998,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
 
 .material-item {
   @include card-base;
-  
+
   &.selected {
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
     border-color: rgba(168, 85, 247, 0.3);
@@ -1000,12 +1032,12 @@ $text-dim: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-  
+
   &:hover:not(:disabled) {
     background: linear-gradient(135deg, #0891b2, #7c3aed);
     transform: scale(1.05);
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -1046,7 +1078,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   border: 1px solid $glass-border;
   appearance: none;
   cursor: pointer;
-  
+
   &::-webkit-slider-thumb {
     appearance: none;
     width: 16px;
@@ -1056,7 +1088,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
   }
-  
+
   &::-moz-range-thumb {
     width: 16px;
     height: 16px;
@@ -1072,23 +1104,22 @@ $text-dim: rgba(255, 255, 255, 0.5);
   width: 100%;
   padding: 8px 12px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
   border: 1px solid $glass-hover-border;
   color: white;
   cursor: pointer;
   appearance: none;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 8px center;
-  background-repeat: no-repeat;
+  background: rgba(255, 255, 255, 0.05)
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")
+    no-repeat right 8px center;
   background-size: 20px;
-  
+
   &:focus {
     outline: none;
     border-color: $active-border;
   }
-  
+
   option {
     background: #1e293b;
     color: white;
@@ -1101,11 +1132,11 @@ $text-dim: rgba(255, 255, 255, 0.5);
   inset: 0;
   z-index: 40;
   pointer-events: none;
-  
+
   @media (min-width: 768px) {
     display: none;
   }
-  
+
   &.open {
     pointer-events: auto;
   }
@@ -1121,7 +1152,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   border-radius: 16px 16px 0 0;
   transform: translateY(100%);
   transition: transform 0.3s ease-out;
-  
+
   .mobile-panel.open & {
     transform: translateY(0);
   }
@@ -1167,7 +1198,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   color: $text-secondary;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   &.active {
     background: rgba(255, 255, 255, 0.1);
     color: $text-primary;
@@ -1220,7 +1251,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
 .mobile-material {
   @include card-base;
   padding: 8px;
-  
+
   &.selected {
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
     border-color: rgba(168, 85, 247, 0.3);
@@ -1252,11 +1283,11 @@ $text-dim: rgba(255, 255, 255, 0.5);
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   &:hover:not(:disabled) {
     background: linear-gradient(135deg, #0891b2, #7c3aed);
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -1280,7 +1311,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
+
   label {
     font-size: 12px;
     color: $text-muted;
@@ -1316,10 +1347,9 @@ $text-dim: rgba(255, 255, 255, 0.5);
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 </style>
-
