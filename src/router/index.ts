@@ -28,9 +28,9 @@ const routes = [
     },
   },
   {
-    path: '/portfolio',
-    name: 'Portfolio',
-    component: () => import('@/views/Portfolio.vue'),
+    path: '/babylon-demo',
+    name: 'BabylonDemo',
+    component: () => import('@/views/BabylonDemo.vue'),
     meta: {
       layout: 'default',
     },

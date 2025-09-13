@@ -30,7 +30,7 @@
             <div class="stars">
               <span v-for="i in 5" :key="i" class="star">⭐</span>
             </div>
-            <div class="rating-text">{{ personalProfile.rating }}/5.0 • {{ personalProfile.completedProjects }}+ projects</div>
+            <div class="rating-text">{{ personalProfile.rating }}{{ pageContent.stats.rating }} {{ personalProfile.completedProjects }}+ {{ pageContent.stats.projects.toLowerCase() }}</div>
           </div>
         </div>
         
@@ -50,12 +50,12 @@
           
           <div class="hero-actions" ref="heroActions">
             <a :href="personalProfile.upworkProfile" target="_blank" class="btn-primary">
-              <span>Hire Me on Upwork</span>
-              <i class="icon">🚀</i>
+              <span>{{ pageContent.buttons.hireMe }}</span>
+              <i class="icon">{{ pageContent.icons.rocket }}</i>
             </a>
             <a :href="`mailto:${personalProfile.email}`" class="btn-secondary">
-              <span>Get a Quote</span>
-              <i class="icon">💬</i>
+              <span>{{ pageContent.buttons.getQuote }}</span>
+              <i class="icon">{{ pageContent.icons.chat }}</i>
             </a>
           </div>
         </div>
@@ -63,7 +63,7 @@
       
       <div class="scroll-indicator" ref="scrollIndicator">
         <div class="scroll-wheel"></div>
-        <span>Scroll to explore</span>
+        <span>{{ pageContent.hero.scrollIndicator.text }}</span>
       </div>
     </section>
 
@@ -71,8 +71,8 @@
     <section class="skills-section" ref="skillsSection">
       <div class="container">
         <div class="section-header" ref="skillsHeader">
-          <h2 class="section-title">Master of WEB3D Technologies</h2>
-          <p class="section-subtitle">Specialized expertise across the complete 3D and GIS technology stack</p>
+          <h2 class="section-title">{{ pageContent.hero.sections.skills.title }}</h2>
+          <p class="section-subtitle">{{ pageContent.hero.sections.skills.subtitle }}</p>
         </div>
         
         <div class="skills-grid">
@@ -82,7 +82,6 @@
             class="skill-card"
             ref="skillCards"
             :style="{ '--skill-color': skill.color }"
-            @mouseover="animateSkillCard"
           >
             <div class="skill-icon">{{ skill.icon }}</div>
             <div class="skill-content">
@@ -91,13 +90,13 @@
               
               <div class="skill-stats">
                 <div class="proficiency">
-                  <span class="label">Proficiency</span>
+                  <span class="label">{{ pageContent.stats.proficiency }}</span>
                   <div class="progress-bar">
                     <div class="progress" :style="{ width: skill.proficiency + '%' }"></div>
                   </div>
                   <span class="value">{{ skill.proficiency }}%</span>
                 </div>
-                <div class="projects-count">{{ skill.projects }} Projects</div>
+                <div class="projects-count">{{ skill.projects }} {{ pageContent.stats.projects }}</div>
               </div>
               
               <div class="skill-features">
@@ -115,8 +114,8 @@
     <section class="works-section" ref="worksSection">
       <div class="container">
         <div class="section-header" ref="worksHeader">
-          <h2 class="section-title">Featured Success Stories</h2>
-          <p class="section-subtitle">Real projects that delivered exceptional value for clients</p>
+          <h2 class="section-title">{{ pageContent.hero.sections.works.title }}</h2>
+          <p class="section-subtitle">{{ pageContent.hero.sections.works.subtitle }}</p>
         </div>
         
         <div class="works-gallery">
@@ -139,12 +138,12 @@
                 </div>
                 <div class="work-actions">
                   <button v-if="work.demoUrl" class="action-btn" @click.stop="openDemo(work.demoUrl)">
-                    <i class="icon">👁️</i>
-                    View Demo
+                    <i class="icon">{{ pageContent.icons.eye }}</i>
+                    {{ pageContent.buttons.viewDemo }}
                   </button>
                   <button v-if="work.githubUrl" class="action-btn" @click.stop="openGithub(work.githubUrl)">
-                    <i class="icon">💻</i>
-                    Code
+                    <i class="icon">{{ pageContent.icons.laptop }}</i>
+                    {{ pageContent.buttons.viewCode }}
                   </button>
                 </div>
               </div>
@@ -171,8 +170,8 @@
     <section class="services-section" ref="servicesSection">
       <div class="container">
         <div class="section-header" ref="servicesHeader">
-          <h2 class="section-title">What I Can Build for You</h2>
-          <p class="section-subtitle">Transparent pricing for professional 3D and GIS solutions</p>
+          <h2 class="section-title">{{ pageContent.hero.sections.services.title }}</h2>
+          <p class="section-subtitle">{{ pageContent.hero.sections.services.subtitle }}</p>
         </div>
         
         <div class="services-grid">
@@ -195,7 +194,7 @@
             </div>
             
             <div class="service-deliverables">
-              <h4>What you get:</h4>
+              <h4>{{ pageContent.service.whatYouGet }}</h4>
               <ul>
                 <li v-for="item in service.deliverables" :key="item">
                   <span class="checkmark">✅</span>
@@ -205,8 +204,8 @@
             </div>
             
             <button class="service-cta" @click="contactForService(service.title)">
-              Get Quote
-              <i class="icon">💬</i>
+              {{ pageContent.buttons.getQuoteService }}
+              <i class="icon">{{ pageContent.icons.chat }}</i>
             </button>
           </div>
         </div>
@@ -217,8 +216,8 @@
     <section class="testimonials-section" ref="testimonialsSection">
       <div class="container">
         <div class="section-header" ref="testimonialsHeader">
-          <h2 class="section-title">Client Success Stories</h2>
-          <p class="section-subtitle">Real feedback from satisfied clients on Upwork</p>
+          <h2 class="section-title">{{ pageContent.hero.sections.testimonials.title }}</h2>
+          <p class="section-subtitle">{{ pageContent.hero.sections.testimonials.subtitle }}</p>
         </div>
         
         <div class="testimonials-grid">
@@ -245,8 +244,8 @@
             </blockquote>
             
             <div class="project-details">
-              <span class="project-value">💰 {{ testimonial.projectValue }}</span>
-              <span class="completion-time">⏱️ {{ testimonial.completionTime }}</span>
+              <span class="project-value">{{ pageContent.stats.projectValue }} {{ testimonial.projectValue }}</span>
+              <span class="completion-time">{{ pageContent.stats.completionTime }} {{ testimonial.completionTime }}</span>
             </div>
           </div>
         </div>
@@ -257,11 +256,8 @@
     <section class="cta-section" ref="ctaSection">
       <div class="container">
         <div class="cta-content" ref="ctaContent">
-          <h2 class="cta-title">Ready to Transform Your Ideas into Reality?</h2>
-          <p class="cta-description">
-            Let's discuss your 3D project and create something extraordinary together. 
-            I'm available for both short-term projects and long-term collaborations.
-          </p>
+          <h2 class="cta-title">{{ pageContent.hero.sections.cta.title }}</h2>
+          <p class="cta-description">{{ pageContent.hero.sections.cta.description }}</p>
           
           <div class="cta-stats">
             <div v-for="stat in techStats.slice(3)" :key="stat.label" class="cta-stat">
@@ -273,26 +269,26 @@
           
           <div class="cta-actions">
             <a :href="personalProfile.upworkProfile" target="_blank" class="btn-primary large">
-              <span>Start Your Project</span>
-              <i class="icon">🚀</i>
+              <span>{{ pageContent.buttons.startProject }}</span>
+              <i class="icon">{{ pageContent.icons.rocket }}</i>
             </a>
             <a :href="`mailto:${personalProfile.email}`" class="btn-secondary large">
-              <span>Schedule Consultation</span>
-              <i class="icon">📅</i>
+              <span>{{ pageContent.buttons.scheduleConsultation }}</span>
+              <i class="icon">{{ pageContent.icons.calendar }}</i>
             </a>
           </div>
           
           <div class="contact-info">
             <div class="contact-item">
-              <i class="icon">📧</i>
+              <i class="icon">{{ pageContent.contact.email }}</i>
               <span>{{ personalProfile.email }}</span>
             </div>
             <div class="contact-item">
-              <i class="icon">⚡</i>
-              <span>Response within {{ personalProfile.responseTime }}</span>
+              <i class="icon">{{ pageContent.contact.responseTime }}</i>
+              <span>{{ pageContent.stats.responseWithin }} {{ personalProfile.responseTime }}</span>
             </div>
             <div class="contact-item">
-              <i class="icon">🌍</i>
+              <i class="icon">{{ pageContent.contact.location }}</i>
               <span>{{ personalProfile.location }}</span>
             </div>
           </div>
@@ -303,7 +299,7 @@
     <!-- Work Modal -->
     <div v-if="selectedWork" class="work-modal" @click="closeWorkModal">
       <div class="modal-content" @click.stop>
-        <button class="modal-close" @click="closeWorkModal">✕</button>
+        <button class="modal-close" @click="closeWorkModal">{{ pageContent.modal.close }}</button>
         
         <div class="modal-media">
           <img v-if="selectedWork.type === 'image'" :src="selectedWork.media || selectedWork.thumbnail" :alt="selectedWork.title" />
@@ -327,10 +323,10 @@
           
           <div class="modal-actions">
             <a v-if="selectedWork.demoUrl" :href="selectedWork.demoUrl" target="_blank" class="btn-primary">
-              View Live Demo
+              {{ pageContent.buttons.viewLiveDemo }}
             </a>
             <a v-if="selectedWork.githubUrl" :href="selectedWork.githubUrl" target="_blank" class="btn-secondary">
-              View Source Code
+              {{ pageContent.buttons.viewSourceCode }}
             </a>
           </div>
         </div>
@@ -342,6 +338,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
   personalProfile, 
   skillShowcase, 
@@ -351,6 +348,7 @@ import {
   techStats,
   type IntroItem 
 } from '@/data/introData'
+import { pageContent } from '@/data/pageContent'
 
 // Refs for animations
 const heroSection = ref<HTMLElement>()
@@ -410,182 +408,285 @@ const contactForService = (service: string) => {
   window.open(`mailto:${personalProfile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
 }
 
-const animateSkillCard = (event: Event) => {
-  const card = event.currentTarget as HTMLElement
-  gsap.to(card, { 
-    scale: 1.02, 
-    duration: 0.3, 
-    ease: "power2.out",
-    onComplete: () => {
-      gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" })
-    }
-  })
-}
+// Removed complex hover animation - keeping simple CSS transitions
 
-// Animation functions
+// Animation functions - Simplified entrance animations only
 const initHeroAnimations = () => {
-  const tl = gsap.timeline({ delay: 0.5 })
+  const tl = gsap.timeline({ delay: 0.3 })
   
-  // Avatar entrance with rings
-  tl.fromTo(avatar.value, 
-    { scale: 0, rotation: -180, opacity: 0 },
-    { scale: 1, rotation: 0, opacity: 1, duration: 1.2, ease: "back.out(1.7)" }
-  )
-  .from(avatar.value?.querySelectorAll('.ring') || [], {
-    scale: 0,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  }, "-=0.8")
-  
-  // Profile rating
-  .from(profileRating.value, {
-    y: 30,
-    opacity: 0,
-    duration: 0.6
-  }, "-=0.4")
-  
-  // Availability badge
-  .from(availabilityBadge.value, {
-    scale: 0,
-    opacity: 0,
-    duration: 0.5,
-    ease: "back.out(1.7)"
-  }, "-=0.3")
-  
-  // Text content with stagger
-  .from(heroText.value?.children || [], {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power2.out"
-  }, "-=0.6")
-  
-  // Stats cards
-  .from(heroStats.value?.children || [], {
-    scale: 0,
-    rotation: 180,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: "back.out(1.7)"
-  }, "-=0.4")
-  
-  // Action buttons
-  .from(heroActions.value?.children || [], {
-    y: 30,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.2
-  }, "-=0.2")
-  
-  // Scroll indicator
-  .from(scrollIndicator.value, {
+  // Simple fade in for all elements
+  tl.from([
+    avatar.value,
+    profileRating.value,
+    availabilityBadge.value,
+    heroText.value,
+    heroStats.value,
+    heroActions.value,
+    scrollIndicator.value
+  ], {
     opacity: 0,
     y: 20,
-    duration: 0.6
-  }, "-=0.3")
-  
-  // Continuous animations
-  gsap.to(avatar.value?.querySelectorAll('.ring'), {
-    rotation: 360,
-    duration: 10,
-    repeat: -1,
-    ease: "none",
-    stagger: 0.5
-  })
-  
-  gsap.to(scrollIndicator.value?.querySelector('.scroll-wheel'), {
-    y: -10,
-    duration: 1.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "power2.inOut"
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "power2.out"
   })
 }
 
 const initScrollAnimations = () => {
   const sections = [
-    { element: skillsSection.value, header: skillsHeader.value, items: skillCards.value },
-    { element: worksSection.value, header: worksHeader.value, items: workCards.value },
-    { element: servicesSection.value, header: servicesHeader.value, items: serviceCards.value },
-    { element: testimonialsSection.value, header: testimonialsHeader.value, items: testimonialCards.value }
+    skillsSection.value,
+    worksSection.value,
+    servicesSection.value,
+    testimonialsSection.value,
+    ctaSection.value
   ]
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const section = sections.find(s => s.element === entry.target)
-        if (section && section.header && section.items) {
-          // Reset initial state and animate
-          gsap.set([section.header, ...section.items], { clearProps: "all" })
-          
-          // Header animation
-          gsap.fromTo(section.header, 
-            { y: 50, opacity: 0 },
+        // Simple fade in animation for specific elements (excluding section-header and work-card to avoid conflicts)
+        const children = entry.target.querySelectorAll('.skill-card, .service-card, .testimonial-card, .cta-content > *')
+        
+        // 为CTA content添加特殊动画
+        if (entry.target.classList.contains('cta-section')) {
+          gsap.fromTo(children, 
+            { scale: 0.9, opacity: 0, y: 30 },
             { 
-              y: 0, 
-              opacity: 1, 
-              duration: 0.8, 
-              ease: "power2.out",
-              clearProps: "transform,opacity"
-            }
-          )
-          
-          // Items animation with stagger
-          gsap.fromTo(section.items, 
-            { y: 80, opacity: 0, scale: 0.8 },
-            { 
-              y: 0, 
-              opacity: 1, 
               scale: 1,
+              opacity: 1, 
+              y: 0, 
               duration: 0.8,
               stagger: 0.15,
-              ease: "power2.out",
-              delay: 0.3,
-              clearProps: "transform,opacity"
+              ease: "back.out(1.7)"
             }
           )
-          
-          observer.unobserve(entry.target)
+        } else {
+          // 其他元素使用随机方向动画
+          children.forEach((child: any, i: number) => {
+            const directions = [
+              { x: -30, y: 0, rotation: -3 },    // 从左侧
+              { x: 30, y: 0, rotation: 3 },      // 从右侧
+              { x: 0, y: -30, rotation: 0 },     // 从上方
+              { x: 0, y: 30, rotation: 0 }       // 从下方
+            ]
+            const randomDir = directions[i % directions.length]
+            
+            gsap.fromTo(child, 
+              { ...randomDir, opacity: 0 },
+              { 
+                x: 0,
+                y: 0,
+                rotation: 0,
+                opacity: 1, 
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: "power2.out"
+              }
+            )
+          })
         }
         
-        // CTA section special animation
-        if (entry.target === ctaSection.value && ctaContent.value?.children) {
-          gsap.set(ctaContent.value.children, { clearProps: "all" })
-          gsap.fromTo(ctaContent.value.children,
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.2,
-              ease: "power2.out",
-              clearProps: "transform,opacity"
-            }
-          )
-          observer.unobserve(entry.target)
-        }
+        observer.unobserve(entry.target)
       }
     })
-  }, { threshold: 0.2 })
+  }, { threshold: 0.1 })
   
   sections.forEach(section => {
-    if (section.element) observer.observe(section.element)
+    if (section) observer.observe(section)
+  })
+}
+
+// 视差效果函数
+const initParallaxEffects = () => {
+  // 注册ScrollTrigger插件
+  gsap.registerPlugin(ScrollTrigger)
+  
+  // Hero背景网格视差
+  gsap.to(".hero-grid", {
+    y: "-30%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1
+    }
   })
   
-  if (ctaSection.value) observer.observe(ctaSection.value)
+  // 浮动元素视差 - 不同速度
+  gsap.utils.toArray(".floating-element").forEach((element: any, i) => {
+    gsap.to(element, {
+      y: `-${50 + (i * 10)}%`,
+      rotation: 180 + (i * 30),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.5 + (i * 0.1)
+      }
+    })
+  })
+  
+  // Hero内容视差 - 轻微移动
+  gsap.to(".hero-content", {
+    y: "-15%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.5
+    }
+  })
+  
+  // 各个section的标题 - 缩放+淡入效果
+  gsap.utils.toArray(".section-header").forEach((header: any) => {
+    gsap.fromTo(header, 
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: header,
+          start: "top 80%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      }
+    )
+  })
+  
+  // 技能卡片 - 左右交替滑入
+  gsap.utils.toArray(".skill-card").forEach((card: any, i) => {
+    const isEven = i % 2 === 0
+    gsap.fromTo(card,
+      { x: isEven ? -60 : 60, opacity: 0, rotation: isEven ? -5 : 5 },
+      {
+        x: 0,
+        opacity: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      }
+    )
+  })
+  
+  // 服务卡片 - 缩放+旋转进入
+  gsap.utils.toArray(".service-card").forEach((card: any, i) => {
+    gsap.fromTo(card,
+      { scale: 0.5, opacity: 0, rotation: 15 },
+      {
+        scale: 1,
+        opacity: 1,
+        rotation: 0,
+        duration: 0.9,
+        ease: "elastic.out(1, 0.5)",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      }
+    )
+  })
+  
+  // 推荐卡片 - 上下交替+轻微摆动
+  gsap.utils.toArray(".testimonial-card").forEach((card: any, i) => {
+    const isEven = i % 2 === 0
+    gsap.fromTo(card,
+      { y: isEven ? -40 : 40, opacity: 0, skewY: isEven ? 2 : -2 },
+      {
+        y: 0,
+        opacity: 1,
+        skewY: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      }
+    )
+  })
+  
+  // 作品卡片 - 翻转+缩放进入
+  gsap.utils.toArray(".work-card").forEach((card: any, i) => {
+    gsap.fromTo(card,
+      { scale: 0.8, opacity: 0, rotationY: 45, transformPerspective: 1000 },
+      {
+        scale: 1,
+        opacity: 1,
+        rotationY: 0,
+        duration: 0.9,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      }
+    )
+  })
+  
+  // CTA section的特殊视差效果
+  gsap.fromTo(".cta-section",
+    { 
+      background: "linear-gradient(135deg, #1e293b 0%, #334155 100%)",
+    },
+    {
+      background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%)",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".cta-section",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 1
+      }
+    }
+  )
+  
+  // 整体背景色渐变视差
+  gsap.to(".intro-container", {
+    backgroundColor: "#f1f5f9",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".skills-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: true
+    }
+  })
 }
 
 onMounted(() => {
+  // 设置各元素初始状态，防止闪烁
+  gsap.set(".work-card", { opacity: 0, scale: 0.8, rotationY: 45 })
+  gsap.set(".section-header", { opacity: 0, scale: 0.8 })
+  gsap.set(".skill-card", { opacity: 0, x: 0, rotation: 0 }) // x和rotation会在动画中动态设置
+  gsap.set(".service-card", { opacity: 0, scale: 0.5, rotation: 15 })
+  gsap.set(".testimonial-card", { opacity: 0, y: 0, skewY: 0 }) // y和skewY会在动画中动态设置
+  
   initHeroAnimations()
   initScrollAnimations()
+  initParallaxEffects()
 })
 
 onUnmounted(() => {
   gsap.killTweensOf("*")
+  ScrollTrigger.killAll()
   document.body.style.overflow = 'auto'
 })
 </script>
@@ -608,6 +709,7 @@ onUnmounted(() => {
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
   overflow: hidden;
+  will-change: transform;
 }
 
 .hero-background {
@@ -623,12 +725,7 @@ onUnmounted(() => {
     linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
-  animation: gridMove 30s linear infinite;
-}
-
-@keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
+  will-change: transform;
 }
 
 .floating-elements {
@@ -640,24 +737,18 @@ onUnmounted(() => {
     position: absolute;
     font-size: 2rem;
     opacity: 0.1;
-    animation: float 20s linear infinite;
-    animation-delay: var(--delay);
+    will-change: transform;
     
-    @for $i from 1 through 6 {
-      &:nth-child(#{$i}) {
-        left: #{random(80) + 10}%;
-        top: #{random(80) + 10}%;
-      }
-    }
+    &:nth-child(1) { left: 10%; top: 20%; }
+    &:nth-child(2) { left: 85%; top: 15%; }
+    &:nth-child(3) { left: 20%; top: 70%; }
+    &:nth-child(4) { left: 75%; top: 60%; }
+    &:nth-child(5) { left: 45%; top: 30%; }
+    &:nth-child(6) { left: 60%; top: 80%; }
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.1; }
-  90% { opacity: 0.1; }
-  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
+/* Removed float keyframes */
 
 .hero-content {
   position: relative;
@@ -670,6 +761,7 @@ onUnmounted(() => {
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
   align-items: center;
+  will-change: transform;
 }
 
 .hero-profile {
@@ -740,7 +832,7 @@ onUnmounted(() => {
         height: 8px;
         background: #fff;
         border-radius: 50%;
-        animation: pulse 2s infinite;
+        /* Removed pulse animation */
       }
     }
   }
@@ -759,11 +851,7 @@ onUnmounted(() => {
   }
 }
 
-@keyframes pulse {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
-}
+/* Removed pulse keyframes */
 
 .hero-text {
   .hero-title {
@@ -865,13 +953,8 @@ onUnmounted(() => {
         transition: transform 0.6s;
       }
       
-      &:hover::before {
-        transform: translateX(100%);
-      }
-      
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        opacity: 0.9;
       }
     }
     
@@ -1016,9 +1099,8 @@ onUnmounted(() => {
   }
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     border-color: var(--skill-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
   
   .skill-icon {
@@ -1118,9 +1200,8 @@ onUnmounted(() => {
   cursor: pointer;
   
   &:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
     border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
   
   .work-thumbnail {
@@ -1135,9 +1216,7 @@ onUnmounted(() => {
       transition: transform 0.4s ease;
     }
     
-    &:hover img {
-      transform: scale(1.1);
-    }
+    /* Removed image scale effect */
     
     .work-overlay {
       position: absolute;
@@ -1193,7 +1272,6 @@ onUnmounted(() => {
           
           &:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
           }
         }
       }
@@ -1278,9 +1356,8 @@ onUnmounted(() => {
   }
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     border-color: var(--service-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
   
   .service-icon {
@@ -1373,8 +1450,7 @@ onUnmounted(() => {
     gap: 0.75rem;
     
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      opacity: 0.9;
     }
   }
 }
@@ -1396,9 +1472,8 @@ onUnmounted(() => {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
   
   .testimonial-header {
@@ -1534,8 +1609,7 @@ onUnmounted(() => {
       transition: all 0.3s ease;
       
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        opacity: 0.9;
       }
     }
     
@@ -1616,7 +1690,6 @@ onUnmounted(() => {
   
   &:hover {
     background: rgba(148, 163, 184, 0.3);
-    transform: scale(1.1);
   }
 }
 
@@ -1690,8 +1763,7 @@ onUnmounted(() => {
       transition: all 0.3s ease;
       
       &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        opacity: 0.9;
       }
     }
     

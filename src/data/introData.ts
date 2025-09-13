@@ -1,4 +1,5 @@
 // Intro页面数据统一管理 - 专为Upwork接单设计
+import { placeholderImages, resourceUrls } from './pageContent'
 
 export interface IntroItem {
   id: string
@@ -36,11 +37,11 @@ export const personalProfile: PersonalProfile = {
   title: "Expert WEB3D Developer & GIS Specialist",
   tagline: "Bringing Your 3D Vision to Life with Cutting-Edge Technology",
   description: "I specialize in creating stunning 3D web applications and geospatial solutions that captivate users and drive business results. With 5+ years of experience and a 100% success rate on Upwork, I deliver high-quality projects on time and within budget.",
-  avatar: "https://via.placeholder.com/400x400/4F46E5/FFFFFF?text=Your+Photo",
+  avatar: placeholderImages.avatar,
   location: "Available Worldwide (Remote)",
   experience: "5+ Years",
   email: "your.email@example.com",
-  upworkProfile: "https://upwork.com/freelancers/yourprofile",
+  upworkProfile: resourceUrls.external.upwork,
   availability: "Available for new projects",
   rating: 5.0,
   completedProjects: 150,
@@ -103,10 +104,10 @@ export const featuredWorks: IntroItem[] = [
     title: "Real-time 3D Smart City",
     description: "Interactive 3D city dashboard with live data integration, dynamic lighting, and IoT visualization. Built for a major metropolitan government.",
     type: "interactive",
-    thumbnail: "https://via.placeholder.com/600x400/049EF4/FFFFFF?text=3D+Smart+City",
+    thumbnail: placeholderImages.hero.smartCity,
     media: "https://via.placeholder.com/1200x800/049EF4/FFFFFF?text=Smart+City+Demo",
-    demoUrl: "https://demo-link.com/smart-city",
-    githubUrl: "https://github.com/yourname/smart-city",
+    demoUrl: `${resourceUrls.external.demo}/smart-city`,
+    githubUrl: `${resourceUrls.external.github}/smart-city`,
     category: "threejs",
     technologies: ["Three.js", "WebGL", "GLSL", "React", "WebSocket"],
     featured: true
@@ -116,9 +117,9 @@ export const featuredWorks: IntroItem[] = [
     title: "Enterprise VR Training Platform",
     description: "Immersive VR training environment with multi-user support, progress tracking, and realistic physics simulation for Fortune 500 company.",
     type: "video",
-    thumbnail: "https://via.placeholder.com/600x400/BB464B/FFFFFF?text=VR+Training",
+    thumbnail: placeholderImages.hero.vrTraining,
     media: "https://via.placeholder.com/1200x675/BB464B/FFFFFF?text=VR+Demo+Video",
-    demoUrl: "https://demo-link.com/vr-training",
+    demoUrl: `${resourceUrls.external.demo}/vr-training`,
     category: "babylonjs",
     technologies: ["Babylon.js", "WebXR", "Node.js", "Socket.io", "MongoDB"],
     featured: true
@@ -128,9 +129,9 @@ export const featuredWorks: IntroItem[] = [
     title: "Global Flight Operations Center",
     description: "Real-time 3D flight tracking system with weather integration, route optimization, and predictive analytics for international airline.",
     type: "interactive",
-    thumbnail: "https://via.placeholder.com/600x400/48B884/FFFFFF?text=Flight+Operations",
+    thumbnail: placeholderImages.hero.flightOps,
     media: "https://via.placeholder.com/1200x800/48B884/FFFFFF?text=Flight+Center",
-    demoUrl: "https://demo-link.com/flight-ops",
+    demoUrl: `${resourceUrls.external.demo}/flight-ops`,
     category: "cesium",
     technologies: ["Cesium", "PostgreSQL", "Python", "FastAPI", "Redis"],
     featured: true
@@ -140,9 +141,9 @@ export const featuredWorks: IntroItem[] = [
     title: "Emergency Response GIS Platform",
     description: "Advanced mapping platform for disaster management with real-time data feeds, predictive modeling, and multi-agency coordination tools.",
     type: "demo",
-    thumbnail: "https://via.placeholder.com/600x400/1F6B75/FFFFFF?text=Emergency+GIS",
+    thumbnail: placeholderImages.hero.emergencyGis,
     media: "https://via.placeholder.com/1200x800/1F6B75/FFFFFF?text=Emergency+Platform",
-    demoUrl: "https://demo-link.com/emergency-gis",
+    demoUrl: `${resourceUrls.external.demo}/emergency-gis`,
     category: "openlayers",
     technologies: ["OpenLayers", "PostGIS", "Python", "Django", "Apache Kafka"],
     featured: true
@@ -152,9 +153,9 @@ export const featuredWorks: IntroItem[] = [
     title: "Mining Site Analysis Tool",
     description: "Custom QGIS plugin for automated geological analysis with ML-powered ore detection and environmental impact assessment.",
     type: "image",
-    thumbnail: "https://via.placeholder.com/600x400/589632/FFFFFF?text=Mining+Analysis",
+    thumbnail: placeholderImages.hero.miningAnalysis,
     media: "https://via.placeholder.com/1200x800/589632/FFFFFF?text=Mining+Tool",
-    githubUrl: "https://github.com/yourname/mining-analysis",
+    githubUrl: `${resourceUrls.external.github}/mining-analysis`,
     category: "qgis",
     technologies: ["QGIS", "Python", "Scikit-learn", "GDAL", "PostgreSQL"],
     featured: true
@@ -164,8 +165,8 @@ export const featuredWorks: IntroItem[] = [
     title: "3D Product Configurator",
     description: "High-performance 3D product customization platform with AR preview, real-time rendering, and e-commerce integration.",
     type: "interactive",
-    thumbnail: "https://via.placeholder.com/600x400/049EF4/FFFFFF?text=Product+Config",
-    demoUrl: "https://demo-link.com/product-config",
+    thumbnail: placeholderImages.hero.productConfig,
+    demoUrl: `${resourceUrls.external.demo}/product-config`,
     category: "threejs",
     technologies: ["Three.js", "React", "WebRTC", "Stripe API", "AWS"],
     featured: true
@@ -220,7 +221,7 @@ export const clientTestimonials = [
     role: "VP of Technology",
     content: "Exceptional 3D development expertise. Delivered a complex city visualization project 2 weeks ahead of schedule with outstanding performance optimization.",
     rating: 5,
-    avatar: "https://via.placeholder.com/100x100/4F46E5/FFFFFF?text=JM",
+    avatar: placeholderImages.testimonials.jm,
     projectValue: "$18,000",
     completionTime: "6 weeks"
   },
@@ -230,7 +231,7 @@ export const clientTestimonials = [
     role: "Research Director", 
     content: "Incredible GIS and mapping skills. The emergency response platform has already helped coordinate 3 major disaster relief operations successfully.",
     rating: 5,
-    avatar: "https://via.placeholder.com/100x100/10B981/FFFFFF?text=SC",
+    avatar: placeholderImages.testimonials.sc,
     projectValue: "$22,000", 
     completionTime: "8 weeks"
   },
@@ -240,7 +241,7 @@ export const clientTestimonials = [
     role: "Lead Engineer",
     content: "Outstanding work on our flight simulation system. The 3D visualization capabilities exceeded our technical requirements and client expectations.",
     rating: 5,
-    avatar: "https://via.placeholder.com/100x100/F59E0B/FFFFFF?text=MR",
+    avatar: placeholderImages.testimonials.mr,
     projectValue: "$15,500",
     completionTime: "5 weeks"
   }
