@@ -278,7 +278,7 @@
             <div class="wechat-qr">
               <h3 class="qr-title">{{ getText(freelanceContent.contact.qrTitle) }}</h3>
               <div class="qr-placeholder">
-                <img :src="getWeChatQRUrl()" alt="微信二维码" />
+                <img src="@/assets/img/wxid.jpg" />
                 <small>{{ getText(freelanceContent.contact.qrDescription) }}</small>
               </div>
             </div>
@@ -377,7 +377,6 @@ import { useRoute } from 'vue-router'
 import { projectsData, type ProjectData, type MediaItem } from '@/data/projectsData'
 import { freelanceContent } from '@/data/freelanceData'
 import type { LanguageContent } from '@/data/types'
-import { getIPFSUrlFromPath } from '@/utils/ipfsMapper'
 
 // 路由和语言相关
 const route = useRoute()
@@ -449,17 +448,6 @@ const copyWechat = async (type: 'email' | 'wechat', cont: string) => {
 // 打开演示链接
 const openDemo = (url: string) => {
   window.open(url, '_blank')
-}
-
-// 获取微信二维码URL
-const getWeChatQRUrl = () => {
-  // 尝试从IPFS获取，如果没有则使用本地路径
-  const ipfsUrl = getIPFSUrlFromPath('@/assets/img/wxid.jpg')
-  // 如果IPFS映射返回的是原始路径，说明没有IPFS版本，使用import.meta.url
-  if (ipfsUrl === 'wxid.jpg' || ipfsUrl === '@/assets/img/wxid.jpg') {
-    return new URL('@/assets/img/wxid.jpg', import.meta.url).href
-  }
-  return ipfsUrl
 }
 
 onMounted(() => {
@@ -605,24 +593,48 @@ onUnmounted(() => {
 
   @media (max-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     display: grid;
   }
 
   .stat-item {
     text-align: center;
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      padding: 0.75rem;
+    }
 
     .stat-number {
       font-size: 1.8rem;
       font-weight: 700;
       color: #3b82f6;
       line-height: 1;
+      
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.6rem;
+      }
     }
 
     .stat-label {
       font-size: 0.85rem;
       color: #64748b;
       margin-top: 0.25rem;
+      
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+        line-height: 1.3;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+      }
     }
   }
 }
@@ -673,16 +685,32 @@ onUnmounted(() => {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.4);
 
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+
   .service-header {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
 
+    @media (max-width: 768px) {
+      gap: 0.75rem;
+    }
+
     .service-icon {
       font-size: 2rem;
       flex-shrink: 0;
       margin-top: 0.25rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
     }
 
     .service-name {
@@ -690,6 +718,11 @@ onUnmounted(() => {
       font-weight: 600;
       color: #1e293b;
       margin-bottom: 0.25rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.05rem;
+        margin-bottom: 0.4rem;
+      }
     }
 
     .service-brief {
@@ -697,17 +730,31 @@ onUnmounted(() => {
       color: #64748b;
       margin: 0;
       line-height: 1.4;
+
+      @media (max-width: 768px) {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
     }
   }
 
   .service-content {
     margin-top: 1rem;
 
+    @media (max-width: 768px) {
+      margin-top: 0.75rem;
+    }
+
     p {
       color: #475569;
       font-size: 0.9rem;
       line-height: 1.6;
       margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 0.85rem;
+        line-height: 1.65;
+      }
     }
   }
 }
@@ -722,6 +769,16 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .project-item {
@@ -745,6 +802,14 @@ onUnmounted(() => {
   height: 120px;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    height: 160px;
+  }
+
+  @media (max-width: 480px) {
+    height: 180px;
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -755,6 +820,18 @@ onUnmounted(() => {
   &:hover img {
     transform: scale(1.05);
   }
+
+// 移动端禁用 hover 效果，但保持点击反馈
+    @media (hover: none) {
+      &:hover img {
+        transform: none;
+      }
+      
+      // 添加点击反馈
+      &:active {
+        transform: scale(0.98);
+      }
+    }
 }
 
 .project-overlay {
@@ -778,12 +855,21 @@ onUnmounted(() => {
 .project-info {
   padding: 0.75rem;
 
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
   .project-title {
     font-size: 0.9rem;
     font-weight: 600;
     color: #1e293b;
     margin-bottom: 0.3rem;
     line-height: 1.3;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .project-desc {
@@ -795,12 +881,23 @@ onUnmounted(() => {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      -webkit-line-clamp: 3;
+      margin-bottom: 0.75rem;
+    }
   }
 
   .project-tech {
     display: flex;
     gap: 0.2rem;
     flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 0.3rem;
+    }
 
     .tech-badge {
       background: rgba(59, 130, 246, 0.1);
@@ -810,6 +907,11 @@ onUnmounted(() => {
       font-size: 0.6rem;
       font-weight: 500;
       border: 1px solid rgba(59, 130, 246, 0.2);
+
+      @media (max-width: 768px) {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+      }
     }
   }
 }
@@ -839,14 +941,26 @@ onUnmounted(() => {
     gap: 0.75rem;
     margin-bottom: 0.75rem;
 
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
+
     .tech-icon {
       font-size: 1.5rem;
+      
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+      }
     }
 
     .tech-name {
       font-size: 1rem;
       font-weight: 600;
       color: #1e293b;
+      
+      @media (max-width: 768px) {
+        font-size: 1.05rem;
+      }
     }
   }
 
@@ -854,6 +968,14 @@ onUnmounted(() => {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+
+    @media (max-width: 768px) {
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 480px) {
+      gap: 0.4rem;
+    }
 
     .tech-tag {
       background: rgba(59, 130, 246, 0.1);
@@ -863,6 +985,17 @@ onUnmounted(() => {
       font-size: 0.8rem;
       font-weight: 500;
       border: 1px solid rgba(59, 130, 246, 0.2);
+      
+      @media (max-width: 768px) {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.85rem;
+        border-radius: 10px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+      }
     }
   }
 }
@@ -886,10 +1019,24 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 12px;
 
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
   .achievement-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
     margin-top: 0.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
 
   .achievement-info {
@@ -898,12 +1045,26 @@ onUnmounted(() => {
       font-weight: 600;
       color: #1e293b;
       margin-bottom: 0.25rem;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
     }
 
     .achievement-desc {
       font-size: 0.85rem;
       color: #64748b;
       line-height: 1.4;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.85rem;
+      }
     }
   }
 }
@@ -936,15 +1097,42 @@ onUnmounted(() => {
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 44px; // 触摸友好的最小点击区域
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.6);
     transform: translateX(2px);
   }
 
+  // 移动端禁用 hover 效果
+  @media (hover: none) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: none;
+    }
+    
+    &:active {
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0.98);
+    }
+  }
+
   .contact-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
   }
 
   .contact-info {
@@ -954,12 +1142,21 @@ onUnmounted(() => {
       font-size: 0.8rem;
       color: #64748b;
       margin-bottom: 0.2rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+      }
     }
 
     .contact-value {
       font-size: 0.9rem;
       font-weight: 600;
       color: #1e293b;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -968,11 +1165,20 @@ onUnmounted(() => {
   margin: 1.5rem 0;
   text-align: center;
 
+  @media (max-width: 768px) {
+    margin: 1.25rem 0;
+  }
+
   .qr-title {
     font-size: 1rem;
     font-weight: 600;
     color: #1e293b;
     margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+    }
   }
 
   .qr-placeholder {
@@ -981,22 +1187,58 @@ onUnmounted(() => {
     border-radius: 12px;
     padding: 1.5rem;
     color: #64748b;
+    
+    @media (max-width: 768px) {
+      padding: 1.25rem;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      
+      @media (max-width: 768px) {
+        max-width: 200px;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 160px;
+      }
+    }
 
     .qr-icon {
       font-size: 2.5rem;
       display: block;
       margin-bottom: 0.75rem;
+      
+      @media (max-width: 768px) {
+        font-size: 2.2rem;
+      }
     }
 
     p {
       font-size: 1rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
+      
+      @media (max-width: 768px) {
+        font-size: 0.95rem;
+      }
     }
 
     small {
       font-size: 0.85rem;
       opacity: 0.8;
+      
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+        line-height: 1.4;
+      }
     }
   }
 }
@@ -1065,12 +1307,27 @@ onUnmounted(() => {
   .achievements-card,
   .contact-card {
     padding: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .service-item,
   .achievement-item,
   .contact-item {
-    padding: 0.75rem;
+    padding: 1rem;
+  }
+  
+  // 保证在小屏幕上也有足够的点击区域
+  .project-item {
+    min-height: 200px;
+  }
+  
+  // 优化小屏幕上的滚动条
+  .media-thumbnails {
+    -webkit-overflow-scrolling: touch;
+    
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
   }
 }
 
@@ -1081,83 +1338,310 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 2rem;
+  animation: modal-fade-in 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    align-items: flex-start;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
   max-width: 90vw;
   max-height: 90vh;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   flex-direction: column;
+  animation: modal-scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  
+  // 添加微妙的光泽效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    animation: modal-slide-up 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotateX(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+  backdrop-filter: blur(20px);
+  position: relative;
+  
+  // 添加微妙的阴影分割线
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2.5rem;
+    right: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
+    backdrop-filter: blur(25px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    
+    &::after {
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+  }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #1e293b;
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
   }
 
   .close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.6));
+    border: 1px solid rgba(226, 232, 240, 0.5);
+    font-size: 1.25rem;
     color: #64748b;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    
     &:hover {
-      background: rgba(255, 255, 255, 0.5);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.8));
       color: #1e293b;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      padding: 0.875rem;
+      border-radius: 14px;
+    }
+    
+    // 移动端优化触摸反馈
+    @media (hover: none) {
+      &:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.6));
+        transform: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      
+      &:active {
+        background: linear-gradient(135deg, rgba(241, 245, 249, 0.9), rgba(226, 232, 240, 0.8));
+        transform: scale(0.95);
+      }
     }
   }
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: 2rem 2.5rem 2.5rem;
   overflow-y: auto;
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  flex: 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(248, 250, 252, 0.05));
+  
+  // 美化滚动条
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(241, 245, 249, 0.3);
+    border-radius: 6px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4));
+    border-radius: 6px;
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(99, 102, 241, 0.6));
+    }
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.5rem;
+    gap: 2rem;
+    
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.25rem 1rem;
+    gap: 1.5rem;
   }
 }
 
 .media-viewer {
   flex: 2;
   min-width: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 250, 252, 0.6));
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.4);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    flex: 1;
+    order: 1;
+    padding: 1.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(248, 250, 252, 0.8));
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  // 当前媒体展示区域
+  .current-media {
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    
+    @media (max-width: 768px) {
+      margin-bottom: 0.75rem;
+      border-radius: 10px;
+    }
+  }
 }
 
 // 视频容器
 .video-container {
+  position: relative;
+  
   .project-video {
     width: 100%;
     max-height: 60vh;
     border-radius: 12px;
     background: #000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    outline: none;
+    
+    // 添加精致的边框
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: 768px) {
+      max-height: 40vh;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 480px) {
+      max-height: 30vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
   }
 
   .video-placeholder {
@@ -1166,20 +1650,72 @@ onUnmounted(() => {
     align-items: center;
     justify-content: center;
     min-height: 300px;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.7));
+    border-radius: 16px;
     border: 2px dashed rgba(59, 130, 246, 0.3);
     color: #64748b;
+    position: relative;
+    overflow: hidden;
+    
+    // 添加微妙的背景装饰
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @media (max-width: 768px) {
+      min-height: 200px;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 480px) {
+      min-height: 150px;
+      border-radius: 10px;
+    }
 
     .video-icon {
       font-size: 4rem;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2.5rem;
+      }
     }
 
     p {
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.9rem;
+      }
     }
 
     small {
@@ -1187,8 +1723,29 @@ onUnmounted(() => {
       opacity: 0.8;
       text-align: center;
       max-width: 300px;
-      line-height: 1.4;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+
+      @media (max-width: 768px) {
+        font-size: 0.85rem;
+        max-width: 250px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.8rem;
+        max-width: 200px;
+      }
     }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, -10px) rotate(5deg);
   }
 }
 
@@ -1196,14 +1753,63 @@ onUnmounted(() => {
 .image-container {
   .main-image {
     width: 100%;
-    margin-bottom: 1rem;
+    position: relative;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.7));
+    border-radius: 12px;
+    overflow: hidden;
+    
+    // 添加微妙的高光效果
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      border-radius: 10px;
+    }
+
+    @media (max-width: 480px) {
+      border-radius: 8px;
+    }
 
     img {
       width: 100%;
       max-height: 60vh;
       object-fit: contain;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.4);
+      display: block;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 0;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      @media (max-width: 768px) {
+        max-height: 40vh;
+        
+        &:hover {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        max-height: 30vh;
+      }
+      
+      // 移动端优化
+      @media (hover: none) {
+        &:hover {
+          transform: none;
+        }
+      }
     }
   }
 }
@@ -1213,8 +1819,31 @@ onUnmounted(() => {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
   margin-top: 1rem;
+  -webkit-overflow-scrolling: touch; // 移动端平滑滚动
+  scrollbar-width: thin;
+
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    
+    // 隐藏滚动条但保持功能
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 4px;
+    }
+  }
 
   .thumbnail {
     flex-shrink: 0;
@@ -1227,14 +1856,43 @@ onUnmounted(() => {
     transition: all 0.3s ease;
     position: relative;
 
+    @media (max-width: 768px) {
+      width: 90px;
+      height: 68px;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 480px) {
+      width: 100px;
+      height: 75px;
+    }
+
     &.active {
       border-color: #3b82f6;
       transform: scale(1.05);
+      
+      @media (max-width: 768px) {
+        transform: scale(1.1);
+        border-width: 3px;
+      }
     }
 
     &:hover {
       transform: scale(1.05);
       border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    // 移动端禁用 hover 效果
+    @media (hover: none) {
+      &:hover {
+        transform: none;
+        border-color: transparent;
+      }
+      
+      // 只在点击时显示反馈
+      &:active {
+        transform: scale(0.95);
+      }
     }
 
     img {
@@ -1256,11 +1914,19 @@ onUnmounted(() => {
       .video-icon-small {
         font-size: 1.2rem;
         margin-bottom: 0.25rem;
+        
+        @media (max-width: 768px) {
+          font-size: 1.4rem;
+        }
       }
 
       .media-type-label {
         font-size: 0.7rem;
         font-weight: 500;
+        
+        @media (max-width: 768px) {
+          font-size: 0.75rem;
+        }
       }
     }
   }
@@ -1269,35 +1935,165 @@ onUnmounted(() => {
 .project-details {
   flex: 1;
   min-width: 300px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(248, 250, 252, 0.7));
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.4);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  
+  // 添加微妙的顶部高光
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  }
+
+  @media (max-width: 768px) {
+    min-width: unset;
+    order: 2;
+    padding: 1.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 250, 252, 0.9));
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 10px;
+  }
 
   .project-description {
     font-size: 1rem;
     color: #475569;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    
+    // 添加精致的首字母效果
+    &::first-letter {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #3b82f6;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
   }
 
   .tech-stack {
     h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      
+      // 添加装饰线
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 2rem;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 1px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.15rem;
+        margin-bottom: 1.25rem;
+      }
     }
 
     .tech-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
+
+      @media (max-width: 768px) {
+        gap: 0.7rem;
+      }
+
+      @media (max-width: 480px) {
+        gap: 0.5rem;
+      }
 
       .tech-tag {
-        background: rgba(59, 130, 246, 0.1);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.05));
         color: #3b82f6;
-        padding: 0.5rem 0.75rem;
-        border-radius: 12px;
+        padding: 0.6rem 1rem;
+        border-radius: 14px;
         font-size: 0.85rem;
-        font-weight: 500;
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        font-weight: 600;
+        border: 1px solid rgba(59, 130, 246, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        
+        // 添加微妙的高光效果
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        &:hover {
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.08));
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+          
+          &::before {
+            left: 100%;
+          }
+        }
+
+        @media (max-width: 768px) {
+          padding: 0.7rem 1.1rem;
+          font-size: 0.9rem;
+          border-radius: 12px;
+        }
+
+        @media (max-width: 480px) {
+          padding: 0.6rem 0.9rem;
+          font-size: 0.8rem;
+          border-radius: 10px;
+        }
+        
+        // 移动端优化
+        @media (hover: none) {
+          &:hover {
+            transform: none;
+            box-shadow: none;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.05));
+          }
+        }
       }
     }
   }
@@ -1305,36 +2101,136 @@ onUnmounted(() => {
 
 // 演示链接按钮样式
 .demo-link {
-  margin: 1.5rem 0;
+  margin: 2rem 0 1.5rem;
   text-align: center;
+  position: relative;
+
+  @media (max-width: 768px) {
+    margin: 1.75rem 0 1.25rem;
+  }
 
   .demo-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 8px 25px rgba(59, 130, 246, 0.25),
+      0 4px 12px rgba(59, 130, 246, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    min-height: 48px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.02em;
+    
+    // 添加光泽效果
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    // 添加边框高光
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask-composite: xor;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1.1rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 300px;
+      gap: 0.9rem;
+      
+      &::after {
+        border-radius: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+      max-width: 260px;
+      border-radius: 12px;
+      
+      &::after {
+        border-radius: 12px;
+      }
+    }
 
     &:hover {
-      background: linear-gradient(45deg, #1d4ed8, #1e40af);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5, #7c3aed);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 12px 35px rgba(59, 130, 246, 0.35),
+        0 8px 20px rgba(59, 130, 246, 0.2);
+        
+      &::before {
+        left: 100%;
+      }
     }
 
     &:active {
-      transform: translateY(0);
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 
+        0 6px 20px rgba(59, 130, 246, 0.3),
+        0 3px 10px rgba(59, 130, 246, 0.2);
+    }
+
+    // 移动端优化触摸反馈
+    @media (hover: none) {
+      &:hover {
+        transform: none;
+        background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
+        box-shadow: 
+          0 8px 25px rgba(59, 130, 246, 0.25),
+          0 4px 12px rgba(59, 130, 246, 0.15);
+      }
+      
+      &:active {
+        transform: scale(0.97);
+        background: linear-gradient(135deg, #1e40af, #3730a3, #6b21a8);
+      }
     }
 
     .demo-icon {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      position: relative;
+      z-index: 1;
+      
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+    }
+    
+    span {
+      position: relative;
+      z-index: 1;
     }
   }
 }

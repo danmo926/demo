@@ -5,7 +5,6 @@ export interface MediaItem {
 }
 
 import type { LanguageContent } from './types'
-import { getIPFSUrl } from '@/utils/ipfsMapper'
 
 export interface ProjectData {
   id: string
@@ -29,10 +28,10 @@ export const projectsData: ProjectData[] = [
       en: 'A 3D visualization hospital cold source management system built with Babylon.js, integrating BIM building information models with IoT technology for real-time data interaction with Siemens PLC equipment. Obtains key parameters such as chiller operating status, temperature, and pressure through WebSocket protocol, dynamically displays equipment status in 3D scenes, supports equipment positioning, parameter monitoring, and fault warning functions, providing an intuitive visual management platform for intelligent operation and maintenance of hospital refrigeration systems.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('by.png'), alt: '医院冷源管理系统主界面' },
-      { type: 'image', url: getIPFSUrl('by2.png'), alt: '设备监控界面' },
-      { type: 'image', url: getIPFSUrl('by3.png'), alt: '三维场景展示' },
-      { type: 'video', url: getIPFSUrl('demo3.mp4'), alt: '视频演示' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/by.png', alt: '医院冷源管理系统主界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/by2.png', alt: '设备监控界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/by3.png', alt: '三维场景展示' },
+      { type: 'video', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/demo3.mp4', alt: '视频演示' }
     ],
     tech: ['Babylon.js', 'Vue.js', 'WebSocket', 'BIM'],
     category: 'smart'
@@ -48,8 +47,8 @@ export const projectsData: ProjectData[] = [
       en: 'An intelligent monitoring and warning platform for long-distance oil and gas pipelines developed based on Cesium 3D earth engine. Integrates PostGIS spatial database to process massive geographic data, uses QGIS for data preprocessing, and utilizes GeoServer to publish spatial services. The system supports multi-source heterogeneous data fusion, including pipeline routes, geological data, meteorological information, etc., achieving 3D visualization display along pipeline routes. Features real-time monitoring, risk assessment, emergency response plans, and inspection management, providing comprehensive digital solutions for pipeline safe operation.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('db1.png'), alt: '管线监控主界面' },
-      { type: 'image', url: getIPFSUrl('db2.png'), alt: '三维地球展示' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/db1.png', alt: '管线监控主界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/db2.png', alt: '三维地球展示' }
     ],
     tech: ['Cesium', 'PostGIS', 'QGIS', 'GeoServer'],
     category: 'gis'
@@ -65,9 +64,9 @@ export const projectsData: ProjectData[] = [
       en: 'An intelligent management platform for temporary power consumption at construction sites built with Three.js and TypeScript. Renders 3D construction scenes through WebGL technology, combined with IoT intelligent power monitoring equipment to achieve automatic identification, real-time monitoring and intelligent management of all electrical equipment at construction sites. The system features power load analysis, safety hazard warning, power cost statistics, equipment lifecycle management, supports mobile emergency response, effectively reducing construction power safety risks and improving power resource utilization efficiency.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('dnpt.png'), alt: '施工用电管理界面' },
-      { type: 'image', url: getIPFSUrl('dnpt2.png'), alt: '三维场景监控' },
-      { type: 'video', url: getIPFSUrl('demo2.mp4'), alt: '视频演示' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/dnpt.png', alt: '施工用电管理界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/dnpt2.png', alt: '三维场景监控' },
+      { type: 'video', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/demo2.mp4', alt: '视频演示' }
     ],
     tech: ['Three.js', 'TypeScript', 'WebGL', 'IoT'],
     category: 'smart'
@@ -83,7 +82,7 @@ export const projectsData: ProjectData[] = [
       en: 'A WebGIS dual map linkage demonstration system developed based on OpenLayers and Cesium technology stack. The system achieves seamless switching and linkage operations between 2D maps and 3D earth, integrating wind field data visualization and heat map analysis functions. Data processing through QGIS, using GeoServer to publish map services, supporting loading and display of various data formats. Features layer management, spatial query, measurement tools, thematic analysis and other basic GIS functions, providing technical reference for 2D-3D integrated display of geographic information systems.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('ol.png'), alt: 'WebGIS双图联动演示' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/ol.png', alt: 'WebGIS双图联动演示' }
     ],
     tech: ['OpenLayers', 'Cesium','QGIS','GeoServer'],
     category: 'gis',
@@ -100,8 +99,8 @@ export const projectsData: ProjectData[] = [
       en: 'A digital construction performance management platform built with Three.js and BIM technology. By importing Revit models and combining with WebSocket real-time data transmission, it realizes visual control of construction progress and quality safety management. The system supports 4D construction simulation, progress plan comparison, quality inspection records, safety hazard inspection and other functions. Through 3D scenes, it intuitively displays construction status and provides intelligent management tools such as progress deviation warning, quality issue tracing, and safety risk assessment, comprehensively improving project performance management level.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('scly.png'), alt: '施工履约管理系统界面' },
-      { type: 'image', url: getIPFSUrl('scly2.png'), alt: '施工履约管理系统界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/scly.png', alt: '施工履约管理系统界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/scly2.png', alt: '施工履约管理系统界面' }
     ],
     tech: ['Three.js', 'Vue.js', 'BIM', 'WebSocket'],
     category: 'bim'
@@ -117,9 +116,9 @@ export const projectsData: ProjectData[] = [
       en: 'A campus intelligent power management visualization platform developed with Three.js technology. Builds 3D campus scenes through WebGL rendering engine, combined with Vue.js to implement responsive user interface. The system monitors the power equipment status of various teaching buildings and classrooms in real time, supports remote control and energy consumption analysis of air conditioning, lighting, multimedia equipment, etc. Features power peak-valley statistics, abnormal power consumption warning, energy optimization suggestions, and improves campus energy management efficiency through intuitive 3D visualization interface, contributing to green campus construction.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('zs1.png'), alt: '校园用电管理主界面' },
-      { type: 'image', url: getIPFSUrl('zs2.png'), alt: '三维校园场景' },
-      { type: 'image', url: getIPFSUrl('zs3.png'), alt: '能耗统计分析' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zs1.png', alt: '校园用电管理主界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zs2.png', alt: '三维校园场景' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zs3.png', alt: '能耗统计分析' }
     ],
     tech: ['Three.js', 'GLSL', 'Vue.js', 'WebGL'],
     category: 'web3d'
@@ -135,8 +134,8 @@ export const projectsData: ProjectData[] = [
       en: 'A virtual exhibition hall solution developed with Babylon.js 3D engine. The system supports high-precision 3D model loading, third-person view roaming, virtual guided tours, multimedia displays and other functions. Features intelligent services such as exhibit information inquiry, voice commentary, route planning, and visitor statistics, providing immersive digital visiting experiences for museums, science and technology museums, corporate exhibition halls and other venues.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('zt1.png'), alt: '三维展厅主场景' },
-      { type: 'image', url: getIPFSUrl('zt2.png'), alt: '展品展示区域' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zt1.png', alt: '三维展厅主场景' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zt2.png', alt: '展品展示区域' }
     ],
     tech: ['Babylon.js', 'Vue.js'],
     category: 'smart'
@@ -152,7 +151,7 @@ export const projectsData: ProjectData[] = [
       en: 'An intelligent document management platform developed based on Three.js 3D rendering engine. The system dynamically generates and loads corresponding 3D building models according to different building types (office, bridges, petrochemical, etc.). The platform integrates construction document management, progress visualization, quality inspection records and other functions, supports drawing document association, construction node tracking, progress comparison analysis, providing integrated solutions for digital document management and visual progress display for construction projects.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('zlpt.png'), alt: '资料管理平台界面' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/zlpt.png', alt: '资料管理平台界面' }
     ],
     tech: ['Three.js', 'Vue.js'],
     category: 'smart'
@@ -168,10 +167,10 @@ export const projectsData: ProjectData[] = [
       en: 'A Revit plugin developed based on C# .NET framework and Revit API. Uses WPF technology to build user interface, implementing rapid parametric generation of steel structure grids, standard component library management, automatic component parameter binding and other functions. The plugin supports intelligent design of various grid forms (planar trusses, space grids, spherical grids, etc.), featuring advanced functions such as component optimization, material statistics, and automatic construction drawing generation, significantly improving steel structure BIM design efficiency and providing professional digital design tools for structural engineers.'
     },
     media: [
-      { type: 'image', url: getIPFSUrl('rvt.png'), alt: 'Revit插件界面' },
-      { type: 'image', url: getIPFSUrl('rvt2.png'), alt: '钢结构网架生成' },
-      { type: 'video', url: getIPFSUrl('净高分析(填充).mp4'), alt: '净高分析' },
-      { type: 'video', url: getIPFSUrl('钢结构网架-操作演示.mp4'), alt: '钢结构网架-操作演示' }
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/rvt.png', alt: 'Revit插件界面' },
+      { type: 'image', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/rvt2.png', alt: '钢结构网架生成' },
+      { type: 'video', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/净高分析(填充).mp4', alt: '净高分析' },
+      { type: 'video', url: 'https://env-00jxhp1jmjou.normal.cloudstatic.cn/demo/钢结构网架-操作演示.mp4', alt: '钢结构网架-操作演示' }
     ],
     tech: ['C# .NET', 'Revit API', 'WPF', 'BIM'],
     category: 'bim'
