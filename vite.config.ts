@@ -17,7 +17,7 @@ const transformHtmlPlugin = (data: Record<string, string>): Plugin => ({
 })
 
 export default defineConfig({
-  base: '/demo/',
+  base: './',
   plugins: [
     vue(),
     tailwindcss(),
