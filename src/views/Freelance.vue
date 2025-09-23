@@ -7,31 +7,31 @@
           <div class="profile-info">
             <div class="profile-badge">
               <span class="badge-icon">👋</span>
-              <span class="badge-text">Hi，我是Web3D开发者</span>
+              <span class="badge-text">{{ getText(freelanceContent.header.badge) }}</span>
             </div>
-            <h1 class="profile-title">专注3D模型到Web渲染的工作流程</h1>
-            <p class="profile-subtitle">根据项目特点选择最适合的技术栈</p>
+            <h1 class="profile-title">{{ getText(freelanceContent.header.title) }}</h1>
+            <p class="profile-subtitle">{{ getText(freelanceContent.header.subtitle) }}</p>
             <p class="profile-description">
-              在多个大型项目中负责3D模块的设计开发交付，擅长从各种建模软件(Revit、3dsMax、SketchUp等)输出的模型进行优化处理，建立高效的渲染管线，最终在Web端实现流畅的3D展示。每个项目都会根据模型复杂度、性能要求、交互需求来选择Three.js、Babylon.js或Cesium方案
+              {{ getText(freelanceContent.header.description) }}
             </p>
           </div>
 
           <div class="profile-stats">
             <div class="stat-item">
               <div class="stat-number">9+</div>
-              <div class="stat-label">年经验</div>
+              <div class="stat-label">{{ getText(freelanceContent.header.stats.experience) }}</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">10+</div>
-              <div class="stat-label">Web3D作品</div>
+              <div class="stat-label">{{ getText(freelanceContent.header.stats.projects) }}</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">60+</div>
-              <div class="stat-label">Revit插件</div>
+              <div class="stat-label">{{ getText(freelanceContent.header.stats.plugins) }}</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">20+</div>
-              <div class="stat-label">获得奖项</div>
+              <div class="stat-label">{{ getText(freelanceContent.header.stats.awards) }}</div>
             </div>
           </div>
         </div>
@@ -43,19 +43,19 @@
         <div class="left-column">
           <!-- Services Card -->
           <div class="services-card glass-card">
-            <h2 class="card-title">核心能力</h2>
+            <h2 class="card-title">{{ getText(freelanceContent.services.title) }}</h2>
             <div class="services-list">
               <div class="service-item">
                 <div class="service-header">
                   <span class="service-icon">🎮</span>
                   <div>
-                    <h3 class="service-name">Web3D渲染引擎</h3>
-                    <p class="service-brief">Three.js、Babylon.js深度应用开发</p>
+                    <h3 class="service-name">{{ getText(freelanceContent.services.items.webRenderer.name) }}</h3>
+                    <p class="service-brief">{{ getText(freelanceContent.services.items.webRenderer.brief) }}</p>
                   </div>
                 </div>
                 <div class="service-content">
                   <p>
-                    在Web端实现复杂3D场景的流畅渲染，根据项目需求选择合适的技术栈。Three.js适合快速原型和中等复杂度场景，Babylon.js用于需要高级渲染效果的项目。掌握阴影、光照、后处理等高级渲染技术。
+                    {{ getText(freelanceContent.services.items.webRenderer.content) }}
                   </p>
                 </div>
               </div>
@@ -64,13 +64,13 @@
                 <div class="service-header">
                   <span class="service-icon">🏗️</span>
                   <div>
-                    <h3 class="service-name">BIM+智慧应用</h3>
-                    <p class="service-brief">数字孪生系统、进度管控、质量安全管理</p>
+                    <h3 class="service-name">{{ getText(freelanceContent.services.items.bimSmart.name) }}</h3>
+                    <p class="service-brief">{{ getText(freelanceContent.services.items.bimSmart.brief) }}</p>
                   </div>
                 </div>
                 <div class="service-content">
                   <p>
-                    将BIM模型与IoT数据结合，开发智慧工地、智慧工厂等数字孪生应用。实现施工进度的可视化管控，质量问题的3D定位标注，安全区域的动态监控。通过实时数据驱动模型状态变化，让静态的BIM模型变成动态的管理工具。
+                    {{ getText(freelanceContent.services.items.bimSmart.content) }}
                   </p>
                 </div>
               </div>
@@ -79,14 +79,13 @@
                 <div class="service-header">
                   <span class="service-icon">⚡</span>
                   <div>
-                    <h3 class="service-name">模型优化处理</h3>
-                    <p class="service-brief">轻量化算法、LOD分级、格式转换</p>
+                    <h3 class="service-name">{{ getText(freelanceContent.services.items.optimization.name) }}</h3>
+                    <p class="service-brief">{{ getText(freelanceContent.services.items.optimization.brief) }}</p>
                   </div>
                 </div>
                 <div class="service-content">
                   <p>
-                    专注于模型的轻量化处理，运用Mesh简化、纹理压缩、几何合并、实例化等技术。建立了完整的LOD(Level of
-                    Detail)分级体系，根据视距和重要性自动调整模型精度。熟练处理IFC、FBX、OBJ、glTF等格式转换和材质转换，确保模型在Web端的最佳表现。
+                    {{ getText(freelanceContent.services.items.optimization.content) }}
                   </p>
                 </div>
               </div>
@@ -95,13 +94,13 @@
                 <div class="service-header">
                   <span class="service-icon">🗺️</span>
                   <div>
-                    <h3 class="service-name">WebGIS</h3>
-                    <p class="service-brief">空间分析、专题图开发、二三维联动、地理数据可视化</p>
+                    <h3 class="service-name">{{ getText(freelanceContent.services.items.webgis.name) }}</h3>
+                    <p class="service-brief">{{ getText(freelanceContent.services.items.webgis.brief) }}</p>
                   </div>
                 </div>
                 <div class="service-content">
                   <p>
-                    熟悉空间数据处理和分析算法，包括缓冲区分析、叠加分析、网络分析等。实现OpenLayers和Cesium的深度整合，做到二维地图与三维场景的无缝切换。处理过大规模地理数据的可视化，包括风场图、热力图、等值线图、流场图等多种专题图表现形式。
+                    {{ getText(freelanceContent.services.items.webgis.content) }}
                   </p>
                 </div>
               </div>
@@ -110,14 +109,13 @@
                 <div class="service-header">
                   <span class="service-icon">🔧</span>
                   <div>
-                    <h3 class="service-name">Revit二次开发</h3>
-                    <p class="service-brief">API插件开发、族库管理、工作流程自动化</p>
+                    <h3 class="service-name">{{ getText(freelanceContent.services.items.revit.name) }}</h3>
+                    <p class="service-brief">{{ getText(freelanceContent.services.items.revit.brief) }}</p>
                   </div>
                 </div>
                 <div class="service-content">
                   <p>
-                    基于Revit
-                    API开发了60+个功能模块，包括模型检查、数据提取、批量处理等工具。熟悉族(Family)系统开发，能够创建参数化构件库，建立企业级的BIM数据标准。开发过自动化建模工具，大幅提升设计师的工作效率。
+                    {{ getText(freelanceContent.services.items.revit.content) }}
                   </p>
                 </div>
               </div>
@@ -126,11 +124,11 @@
 
           <!-- Projects Card -->
           <div class="projects-card glass-card">
-            <h2 class="card-title">项目案例</h2>
+            <h2 class="card-title">{{ getText(freelanceContent.projects.title) }}</h2>
             <div class="projects-grid">
               <div v-for="project in projectsData" :key="project.id" class="project-item" @click="openProjectDetail(project)">
                 <div class="project-cover">
-                  <img :src="project.media[0]?.url" :alt="project.media[0]?.alt || project.title" />
+                  <img :src="project.media[0]?.url" :alt="project.media[0]?.alt || getText(project.title)" />
                   <div class="project-overlay">
                     <div class="project-type-icon">
                       {{ project.media.some((m) => m.type === 'video') ? '▶️' : '🖼️' }}
@@ -139,8 +137,8 @@
                   </div>
                 </div>
                 <div class="project-info">
-                  <h3 class="project-title">{{ project.title }}</h3>
-                  <p class="project-desc">{{ project.description }}</p>
+                  <h3 class="project-title">{{ getText(project.title) }}</h3>
+                  <p class="project-desc">{{ getText(project.description) }}</p>
                   <div class="project-tech">
                     <span v-for="tech in project.tech.slice(0, 5)" :key="tech" class="tech-badge">
                       {{ tech }}
@@ -156,12 +154,12 @@
         <div class="right-column">
           <!-- Tech Stack Card -->
           <div class="tech-card glass-card">
-            <h2 class="card-title">技术栈</h2>
+            <h2 class="card-title">{{ getText(freelanceContent.techStack.title) }}</h2>
             <div class="tech-categories">
               <div class="tech-category">
                 <div class="tech-header">
                   <span class="tech-icon">🎮</span>
-                  <span class="tech-name">Web3D</span>
+                  <span class="tech-name">{{ getText(freelanceContent.techStack.categories.web3d) }}</span>
                 </div>
                 <div class="tech-list">
                   <span class="tech-tag">Three.js</span>
@@ -174,7 +172,7 @@
               <div class="tech-category">
                 <div class="tech-header">
                   <span class="tech-icon">🗺️</span>
-                  <span class="tech-name">GIS</span>
+                  <span class="tech-name">{{ getText(freelanceContent.techStack.categories.gis) }}</span>
                 </div>
                 <div class="tech-list">
                   <span class="tech-tag">QGIS</span>
@@ -188,7 +186,7 @@
               <div class="tech-category">
                 <div class="tech-header">
                   <span class="tech-icon">💻</span>
-                  <span class="tech-name">前端</span>
+                  <span class="tech-name">{{ getText(freelanceContent.techStack.categories.frontend) }}</span>
                 </div>
                 <div class="tech-list">
                   <span class="tech-tag">JavaScript</span>
@@ -201,7 +199,7 @@
               <div class="tech-category">
                 <div class="tech-header">
                   <span class="tech-icon">⚙️</span>
-                  <span class="tech-name">C端开发</span>
+                  <span class="tech-name">{{ getText(freelanceContent.techStack.categories.desktop) }}</span>
                 </div>
                 <div class="tech-list">
                   <span class="tech-tag">C# .NET WPF</span>
@@ -214,46 +212,41 @@
 
           <!-- Achievements Card -->
           <div class="achievements-card glass-card">
-            <h2 class="card-title">一些荣誉和成果</h2>
+            <h2 class="card-title">{{ getText(freelanceContent.achievements.title) }}</h2>
             <div class="achievements-list">
               <div class="achievement-item">
                 <span class="achievement-icon">🏆</span>
                 <div class="achievement-info">
-                  <div class="achievement-name">省级称号 × 3</div>
-                  <div class="achievement-desc">江苏省技术能手</div>
-                  <div class="achievement-desc">江苏省青年岗位能手</div>
-                  <div class="achievement-desc">江苏省五一创新能手</div>
+                  <div class="achievement-name">{{ getText(freelanceContent.achievements.items.provincialTitles.name) }}</div>
+                  <div v-for="desc in freelanceContent.achievements.items.provincialTitles.descriptions" :key="desc.zh" class="achievement-desc">{{ getText(desc) }}</div>
                 </div>
               </div>
               <div class="achievement-item">
                 <span class="achievement-icon">🎖️</span>
                 <div class="achievement-info">
-                  <div class="achievement-name">省部级以上奖项 20+</div>
-                  <div class="achievement-desc">第三届智能建造技术创新大赛一等奖</div>
-                  <div class="achievement-desc">2020年全国安装人五小成果短视频大赛二等奖...</div>
+                  <div class="achievement-name">{{ getText(freelanceContent.achievements.items.awards.name) }}</div>
+                  <div v-for="desc in freelanceContent.achievements.items.awards.descriptions" :key="desc.zh" class="achievement-desc">{{ getText(desc) }}</div>
                 </div>
               </div>
               <div class="achievement-item">
                 <span class="achievement-icon">💻</span>
                 <div class="achievement-info">
-                  <div class="achievement-name">软件著作权 × 2</div>
-                  <div class="achievement-desc">基于Three.js开发的多业态参数化模型动态展示系统</div>
-                  <div class="achievement-desc">智慧工地BIM模型优化与交互展示系统</div>
+                  <div class="achievement-name">{{ getText(freelanceContent.achievements.items.software.name) }}</div>
+                  <div v-for="desc in freelanceContent.achievements.items.software.descriptions" :key="desc.zh" class="achievement-desc">{{ getText(desc) }}</div>
                 </div>
               </div>
               <div class="achievement-item">
                 <span class="achievement-icon">⚡</span>
                 <div class="achievement-info">
-                  <div class="achievement-name">发明专利 × 2</div>
-                  <div class="achievement-desc">一种基于物联网的工程建设数据管理系统及方法</div>
-                  <div class="achievement-desc">工程技术资料信息化管理系统及方法</div>
+                  <div class="achievement-name">{{ getText(freelanceContent.achievements.items.patents.name) }}</div>
+                  <div v-for="desc in freelanceContent.achievements.items.patents.descriptions" :key="desc.zh" class="achievement-desc">{{ getText(desc) }}</div>
                 </div>
               </div>
               <div class="achievement-item">
                 <span class="achievement-icon">📄</span>
                 <div class="achievement-info">
-                  <div class="achievement-name">国家级协会期刊论文</div>
-                  <div class="achievement-desc">机电装配化施工技术在金融城项目的应用</div>
+                  <div class="achievement-name">{{ getText(freelanceContent.achievements.items.papers.name) }}</div>
+                  <div v-for="desc in freelanceContent.achievements.items.papers.descriptions" :key="desc.zh" class="achievement-desc">{{ getText(desc) }}</div>
                 </div>
               </div>
             </div>
@@ -261,41 +254,41 @@
 
           <!-- Contact Card -->
           <div class="contact-card glass-card">
-            <h2 class="card-title">联系我</h2>
-            <p class="contact-intro">如果你有项目需求，欢迎联系我聊聊</p>
+            <h2 class="card-title">{{ getText(freelanceContent.contact.title) }}</h2>
+            <p class="contact-intro">{{ getText(freelanceContent.contact.intro) }}</p>
 
             <div class="contact-methods">
-              <div class="contact-item" @click="copyWechat('邮箱', '937636001@qq.com')">
+              <div class="contact-item" @click="copyWechat('email', '937636001@qq.com')">
                 <span class="contact-icon">📧</span>
                 <div class="contact-info">
-                  <div class="contact-label">邮箱</div>
+                  <div class="contact-label">{{ getText(freelanceContent.contact.email) }}</div>
                   <div class="contact-value">937636001@qq.com</div>
                 </div>
               </div>
 
-              <div class="contact-item" @click="copyWechat('微信号', 'tonggq0926')">
+              <div class="contact-item" @click="copyWechat('wechat', 'tonggq0926')">
                 <span class="contact-icon">💬</span>
                 <div class="contact-info">
-                  <div class="contact-label">微信</div>
+                  <div class="contact-label">{{ getText(freelanceContent.contact.wechat) }}</div>
                   <div class="contact-value">tonggq0926</div>
                 </div>
               </div>
             </div>
 
             <div class="wechat-qr">
-              <h3 class="qr-title">微信扫码</h3>
+              <h3 class="qr-title">{{ getText(freelanceContent.contact.qrTitle) }}</h3>
               <div class="qr-placeholder">
-                <img src="@/assets/img/wxid.jpg" />
-                <small>扫码添加微信好友</small>
+                <img :src="getWeChatQRUrl()" alt="微信二维码" />
+                <small>{{ getText(freelanceContent.contact.qrDescription) }}</small>
               </div>
             </div>
 
             <div class="contact-footer">
               <div class="footer-item">
-                <span>📍 江苏南京 | 支持远程</span>
+                <span>{{ getText(freelanceContent.contact.location) }}</span>
               </div>
               <div class="footer-item">
-                <span>⚡ 24小时内回复</span>
+                <span>{{ getText(freelanceContent.contact.response) }}</span>
               </div>
             </div>
           </div>
@@ -308,7 +301,7 @@
   <div v-if="showProjectModal" class="project-modal" @click="closeProjectModal">
     <div class="modal-content" @click.stop>
       <div class="modal-header">
-        <h2>{{ selectedProject?.title }}</h2>
+        <h2>{{ selectedProject ? getText(selectedProject.title) : '' }}</h2>
         <button class="close-btn" @click="closeProjectModal">✕</button>
       </div>
 
@@ -345,18 +338,27 @@
             >
               <div v-if="media.type === 'video'" class="video-thumbnail">
                 <div class="video-icon-small">▶️</div>
-                <span class="media-type-label">视频</span>
+                <span class="media-type-label">{{ currentLanguage === 'zh' ? '视频' : 'Video' }}</span>
               </div>
-              <img v-else :src="media.url" :alt="media.alt || `${selectedProject.title} ${index + 1}`" />
+              <img v-else :src="media.url" :alt="media.alt || `${selectedProject ? getText(selectedProject.title) : ''} ${index + 1}`" />
             </div>
           </div>
         </div>
 
         <!-- 项目信息 -->
         <div class="project-details">
-          <p class="project-description">{{ selectedProject?.description }}</p>
+          <p class="project-description">{{ selectedProject ? getText(selectedProject.description) : '' }}</p>
+          
+          <!-- 演示链接按钮 -->
+          <div v-if="selectedProject?.demoUrl" class="demo-link">
+            <button @click="openDemo(selectedProject.demoUrl)" class="demo-btn">
+              <span class="demo-icon">🚀</span>
+              <span>{{ currentLanguage === 'zh' ? '查看在线演示' : 'View Live Demo' }}</span>
+            </button>
+          </div>
+
           <div class="tech-stack">
-            <h4>技术栈：</h4>
+            <h4>{{ currentLanguage === 'zh' ? '技术栈：' : 'Tech Stack:' }}</h4>
             <div class="tech-tags">
               <span v-for="tech in selectedProject?.tech" :key="tech" class="tech-tag">
                 {{ tech }}
@@ -371,7 +373,25 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { projectsData, type ProjectData, type MediaItem } from '@/data/projectsData'
+import { freelanceContent } from '@/data/freelanceData'
+import type { LanguageContent } from '@/data/types'
+import { getIPFSUrlFromPath } from '@/utils/ipfsMapper'
+
+// 路由和语言相关
+const route = useRoute()
+
+// 语言检测 - 从query参数获取，默认为中文
+const currentLanguage = computed(() => {
+  const lang = route.query.lang as string
+  return lang === 'en' ? 'en' : 'zh'
+})
+
+// 获取当前语言的文本
+const getText = (content: LanguageContent): string => {
+  return content[currentLanguage.value]
+}
 
 // 项目相关状态
 const showProjectModal = ref(false)
@@ -415,13 +435,31 @@ const handleKeyPress = (event: KeyboardEvent) => {
   }
 }
 
-const copyWechat = async (msg: string, cont: string) => {
+const copyWechat = async (type: 'email' | 'wechat', cont: string) => {
   try {
     await navigator.clipboard.writeText(cont)
-    alert(msg + '已复制到剪贴板')
+    const msg = getText(freelanceContent.contact.copyMessage[type])
+    alert(msg + (currentLanguage.value === 'zh' ? '已复制到剪贴板' : ' copied to clipboard'))
   } catch (err) {
-    alert(msg + cont)
+    const msg = getText(freelanceContent.contact.copyMessage[type])
+    alert(msg + ': ' + cont)
   }
+}
+
+// 打开演示链接
+const openDemo = (url: string) => {
+  window.open(url, '_blank')
+}
+
+// 获取微信二维码URL
+const getWeChatQRUrl = () => {
+  // 尝试从IPFS获取，如果没有则使用本地路径
+  const ipfsUrl = getIPFSUrlFromPath('@/assets/img/wxid.jpg')
+  // 如果IPFS映射返回的是原始路径，说明没有IPFS版本，使用import.meta.url
+  if (ipfsUrl === 'wxid.jpg' || ipfsUrl === '@/assets/img/wxid.jpg') {
+    return new URL('@/assets/img/wxid.jpg', import.meta.url).href
+  }
+  return ipfsUrl
 }
 
 onMounted(() => {
@@ -1261,6 +1299,42 @@ onUnmounted(() => {
         font-weight: 500;
         border: 1px solid rgba(59, 130, 246, 0.2);
       }
+    }
+  }
+}
+
+// 演示链接按钮样式
+.demo-link {
+  margin: 1.5rem 0;
+  text-align: center;
+
+  .demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+
+    &:hover {
+      background: linear-gradient(45deg, #1d4ed8, #1e40af);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    .demo-icon {
+      font-size: 1.1rem;
     }
   }
 }
