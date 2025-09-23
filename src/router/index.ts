@@ -20,9 +20,9 @@ const routes = [
     },
   },
   {
-    path: '/intro',
-    name: 'intro',
-    component: () => import('@/views/intro.vue'),
+    path: '/freelance',
+    name: 'Freelance',
+    component: () => import('@/views/Freelance.vue'),
     meta: {
       layout: 'default',
     },
