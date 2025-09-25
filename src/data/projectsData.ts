@@ -86,7 +86,7 @@ export const projectsData: ProjectData[] = [
     ],
     tech: ['OpenLayers', 'Cesium','QGIS','GeoServer'],
     category: 'gis',
-    demoUrl: '/demo/#/ol/dbview'
+    demoUrl: '/#/ol/dbview'
   },
   {
     id: 'scly-project',

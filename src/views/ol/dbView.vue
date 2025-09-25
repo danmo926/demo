@@ -46,7 +46,7 @@ import { WindLayer } from 'ol-wind'
 
 window.Cesium = Cesium
 
-window.CESIUM_BASE_URL = '/demo/Cesium/'
+window.CESIUM_BASE_URL = '/Cesium/'
 
 onMounted(() => {
   // 在DOM渲染完成后初始化地图
